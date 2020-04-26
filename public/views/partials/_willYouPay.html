@@ -1,0 +1,27 @@
+<md-dialog class="hire-dialog" flex="30" aria-label="Hire">
+
+    <a href="" class="close" ng-click="cancel()">x</a>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <p>We would love to hear from you!</p>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="container">
+
+            <p class="note"> Would you like to feature any of your videos here in countries or cities of your choice? </p>
+
+            <button class="btn btn-hire" ng-click="yes()"> Yes </button>
+            <button class="btn btn-follow" ng-click="no()"> Nope </button>
+
+
+            <div class="footer clearfix">
+                <span class="pull-left"> * This is a survey only. Thanks for your answer!  </span>
+                <!-- <button type="button" class="pull-right btn-link" ng-click="no()"> Submit </button> -->
+            </div>
+        </div>
+    </md-dialog-content>
+
+</md-dialog>

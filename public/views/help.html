@@ -1,0 +1,72 @@
+<!-- <div ng-include="'./views/partials/_header.html'"></div> -->
+<div class="misc-page row">
+    <div class="container clearfix">
+
+        <div class="col-md-3">
+            <div ng-include="'./views/partials/_misc-menu.html'"></div>
+        </div>
+
+        <div class="content-container col-md-9 no-gutter">
+            <div class="content">
+                <div>
+                    <h2>Daystage Feedback</h2>
+                    <p><small>We would love to hear your thoughts, concerns or problems with anything so we can improve!</small></p>
+                </div>
+                <hr>
+                <div>
+                    <form name="FeedbackForm">
+                        <div>
+                            <h4><b>Feedback Type</b></h4>
+                            <label style="font-size: small;">
+                                <input type="radio" ng-model="type" value="comments">&nbsp;&nbsp;Comments
+                            </label>
+                            <label style="font-size: small;margin-left: 80px">
+                                <input style="margin-left: 10px" type="radio" ng-model="type" value="bugs">&nbsp;&nbsp;Bug Reports
+                            </label>
+                            <label style="font-size: small;margin-left: 80px">
+                                <input style="margin-left: 10px" type="radio" ng-model="type" value="questions">&nbsp;&nbsp;Questions
+                            </label>
+                        </div><br>
+                        <div>
+                            <h4><b>Describe Feedback: <sup>*</sup></b></h4>
+                            <div class="col-sm-12">
+                                <textarea name="description"
+                                      id="description"
+                                      cols="50"
+                                      rows="5"
+                                      ng-model="description"
+                                      required
+                                    ></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label><h4><b>Name: <sup>*</sup></b></h4></label>
+                                <div class="col-sm-12">
+                                    <input type="text" id="firstname" name="firstname" ng-model="user.firstname" required>
+                                    <input type="text" id="lastname" name="lastname" ng-model="user.lastname" required><br>
+                                    <label style="margin-left: 5px; font-size: x-small" for="firstname">First Name</label>
+                                    <label style="margin-left: 145px; font-size: x-small" for="lastname">Last Name</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label><h4><b>Email: <sup>*</sup></b></h4></label>
+                                <div class="col-sm-12">
+                                    <input type="text" id="email" name="email" placeholder="mail@example.com" ng-model="user.email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label></label>
+                            <div class="center-block">
+                                <button type="button" class="btn btn-default btn-lg center-block" ng-disabled="FeedbackForm.$invalid" ng-click="feedback()"><small>Submit Feedback</small></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

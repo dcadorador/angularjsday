@@ -1,0 +1,86 @@
+<div id="public-vote" ng-if="stageInfo.stage" class="winner-container clearfix hidden-xs">
+    <videogular vg-update-time="updateVideoTime($currentTime, $duration)" class="preview" vg-theme="css/videogular.min.css">
+        <vg-media ng-if="stageInfo.stage.isYouTube" vg-src="stageInfo.stage.sources" vg-native-controls="false" vg-youtube="rel=1;"></vg-media>
+        <vg-media ng-if="!stageInfo.stage.isYouTube" vg-src="stageInfo.stage.sources" vg-native-controls="false" vg-preload="stageInfo.stage.preload"></vg-media>
+        <vg-controls vg-autohide="true" vg-autohide-time="2000">
+            <vg-play-pause-button></vg-play-pause-button>
+            <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+            <vg-scrub-bar>
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            </vg-scrub-bar>
+            <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+            <vg-volume>
+                <vg-mute-button></vg-mute-button>
+                <vg-volume-bar></vg-volume-bar>
+            </vg-volume>
+            <vg-fullscreen-button></vg-fullscreen-button>
+        </vg-controls>
+        <vg-video-hook stage="stageInfo.stage"></vg-video-hook>
+        <vg-top-video-hook></vg-top-video-hook>
+        <vg-featured-overlay stage="stageInfo"></vg-featured-overlay>
+        <vg-poster ng-if="!stageInfo.stage.isYouTube" vg-url='stageInfo.stage.thumbnail'></vg-poster>
+
+        <!--<vg-buffering></vg-buffering>
+        <vg-video-hook stage="stageInfo.stage"></vg-video-hook>
+        <vg-featured-overlay header="Vote for:" stage="stageInfo"></vg-featured-overlay>
+        <vg-poster ng-if="!stageInfo.stage.isYouTube" vg-url='stageInfo.stage.thumbnail'></vg-poster>-->
+    </videogular>
+    <div class="footer-controls">
+        <div class="btn btn-video-control views">{{ stageInfo.stage.viewsCount }}</div>
+        <btn-applause stage="stageInfo.stage"></btn-applause>
+        <button ng-hide="!isLoggedIn" class="btn btn-facebook pull-right" fb-share share-stage="stageInfo.stage">Share {{stageInfo.thumbnail|json}}</button>
+    </div>
+</div>
+
+<div class="winner-container-mobile visible-xs">
+    <div class="container-fluid">
+        <div class="content">
+            <div class="header cleafix">
+                <div class="rounded-container profile-picture pull-left" background-img="{{ stageInfo.user.profilePicture }}">
+                </div>
+                <div class="info">
+                    <div class="name" profile-link="{{ stageInfo.user.id }}">{{ stageInfo.user.firstName + ' ' + stageInfo.user.lastName }}</div>
+                    <div class="address" profile-link="{{ stageInfo.user.id }}"><img src="images/map-marker-transparent.png" alt="" class="map-marker"> {{ stageInfo.user.address }}
+                        <div class="caption pull-right">Vote for:</div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-container">
+                <videogular vg-update-time="updateVideoTime($currentTime, $duration)" class="preview" vg-theme="css/videogular.min.css">
+                    <vg-media ng-if="stageInfo.stage.isYouTube" vg-src="stageInfo.stage.sources" vg-native-controls="false" vg-youtube="rel=1;showinfo=1"></vg-media>
+                    <vg-media ng-if="!stageInfo.stage.isYouTube" vg-src="stageInfo.stage.sources" vg-native-controls="false" vg-preload="stageInfo.stage.preload"></vg-media>
+                    <vg-controls vg-autohide="true" vg-autohide-time="2000">
+                        <vg-play-pause-button></vg-play-pause-button>
+                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                        <vg-scrub-bar>
+                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                        </vg-scrub-bar>
+                        <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                        <vg-volume>
+                            <vg-mute-button></vg-mute-button>
+                            <vg-volume-bar></vg-volume-bar>
+                        </vg-volume>
+                        <vg-fullscreen-button></vg-fullscreen-button>
+                    </vg-controls>
+                    <vg-buffering></vg-buffering>
+                    <vg-video-hook stage="stageInfo.stage"></vg-video-hook>
+                    <vg-overlay-play></vg-overlay-play>
+                    <vg-poster ng-if="!stageInfo.stage.isYouTube" vg-url='stageInfo.stage.thumbnail'></vg-poster>
+                </videogular>
+            </div>
+            <div class="description">
+              <hm-read-more hm-text="{{ stageInfo.stage.description }}"
+              hm-limit="100" hm-more-text="read more" hm-less-text="read less" hm-dots-class="dots" hm-link-class="read-more-link"></hm-read-more>
+                <!-- <p>{{ stageInfo.stage.description }}</p> -->
+            </div>
+            <div class="controls clearfix">
+                <div class="views">{{ stageInfo.stage.viewsCount }}</div>
+                <btn-applause stage="stageInfo.stage"></btn-applause>
+                <div class="pull-right">
+                    <follow user="stageInfo.user" ng-if="stageInfo.user" ng-cloak class="pull-right"></follow>
+                    <button class="btn winner-button btn-hire pull-right" hire="{{stageInfo.user.id}}" ng-if="stageInfo.user" ng-cloak>Hire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

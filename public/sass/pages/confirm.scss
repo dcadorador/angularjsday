@@ -1,0 +1,72 @@
+.confirm-container {
+
+    margin-top: 50px;
+    height: 200px;
+    position: relative;
+    [class*="col-"] {
+        position: relative;
+        height: 200px;
+        .middle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .message {
+        font-size: 14pt;
+        text-align: center;
+        width: 59%;
+    }
+    .facebook-button {
+        background-color: #5071bd;
+        padding: 8px 15px 8px 40px;
+        border: solid 1px #5071bd;
+        border-radius: 3px;
+        color: white;
+        .icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 35px;
+            background: #1d4299;
+            border-right: solid 1px darken(#1d4299, 5%);
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+    .loading {
+        position: relative;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+    }
+    .caption {
+      // font-family: "RamaGothicThin";
+        // font-family: "Myriad Pro",sans-serif;
+        font-size: 14pt;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    md-progress-circular {
+        .md-right .md-half-circle {
+            border-top-color: $yellow !important;
+            border-right-color: $yellow !important;
+        }
+        .md-left .md-half-circle {
+            border-top-color: $yellow !important;
+            border-left-color: $yellow !important;
+        }
+    }
+
+}

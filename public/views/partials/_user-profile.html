@@ -1,0 +1,70 @@
+<div class="user-info-container hidden-xs hidden-sm">
+    <div class="general-info">
+        <div class="clearfix">
+            <div class="testing rounded-container rc-white-frame rc-lg pull-left"
+                 background-img="{{ user.profilePicture }}"></div>
+            <h4 class="name pull-left" ng-cloak>{{ user.firstName + ' ' + user.lastName }}</h4>
+        </div>
+        <h4 class="address" ng-cloak>{{ user.address || 'Not Specified' }}</h4>
+        <h4 class="birth-date" ng-cloak ng-if="user.isBirthYearHidden">{{ user.birthDate|date:'MMM dd' }}</h4>
+        <h4 class="birth-date" ng-cloak ng-if="!user.isBirthYearHidden">{{ user.birthDate|date:'MMM dd, yyyy' }}</h4>
+        <div class="buttons">
+            <follow user="user" ng-if="user" ng-cloak></follow>
+            <button class="btn btn-hire" hire="{{user.id}}">Hire</button>
+        </div>
+    </div>
+    <ul class="stats">
+        <li>
+            <a ng-href="" ng-class="{'active':activeFilter=='follower'}" ng-click="filter('follower')">
+                Followers
+            <span class="score" ng-cloak>
+              {{ user.followersCount||0 }}
+            </span>
+            </a>
+        </li>
+        <li><a ng-href="" ng-class="{'active':activeFilter=='following'}" ng-click="filter('following')">Following <span
+                class="score" ng-cloak>{{ user.followingsCount||0 }}</span></a></li>
+        <li><a ng-href="" ng-class="{'active':activeFilter=='user'}" ng-click="filter('user')">Stages <span
+                class="score" ng-cloak>{{ user.videoCount||0 }}</span></a></li>
+        <li><a ng-href="">Applause <span class="pull-right" ng-cloak>{{ user.applauseCount||0 }}</span></a></li>
+    </ul>
+    <button ng-click="filter('edit')" ng-if="showEditButton" type="button" class="btn btn-edit-profile btn-lg">
+        <img src="images/gear.png" alt="...">
+        <span>Edit Profile</span>
+    </button>
+</div>
+<div class="mobile-user-info-container container-fluid hidden-md hidden-lg no-gutter">
+    <div class="paper clearfix">
+        <div class="testing rounded-container rc-white-frame rc-lg pull-left"
+             background-img="{{ user.profilePicture }}"></div>
+        <h4 class="name" ng-cloak>{{ user.firstName + ' ' + user.lastName }}</h4>
+        <div class="clearfix info-row-1">
+            <div class="info icon address col-xs-6">{{ user.address || 'Not Specified' }}</div>
+            <div class="info icon edit-profile col-xs-6" ng-click="filter('edit')">Edit Profile</div>
+        </div>
+        <div class="clearfix">
+            <div class="info icon birth-date col-xs-6">{{ user.birthDate|date:'MMM dd, yyyy' }}</div>
+            <div class="info controls col-xs-6">
+                <follow user="user" class="btn-sm" ng-if="user" ng-cloak></follow>
+                <button class="btn btn-hire btn-sm" hire="{{ user.id }}">Hire</button>
+            </div>
+        </div>
+        <div class="filters">
+            <div class="clearfix">
+                <div class="info col-xs-6" ng-class="{'active':activeFilter=='user'}" ng-click="filter('user')">
+                    Stages <span class="score ng-cloak">{{ user.videoCount||0 }}</span>
+                </div>
+                <div class="info col-xs-6" ng-class="{'active':activeFilter=='following'}"
+                     ng-click="filter('following')">
+                    Followings <span class="score ng-cloak">{{ user.followingsCount||0 }}</span>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info col-xs-6" ng-class="{'active':activeFilter=='follower'}" ng-click="filter('follower')">
+                    Followers <span class="score ng-cloak">{{ user.followersCount||0 }}</span>
+                </div>
+                <div class="info col-xs-6">Applause <span class="pull-right">{{ user.totalApplauses||0 }}</span></div>
+            </div>
+        </div>
+    </div>
+</div>

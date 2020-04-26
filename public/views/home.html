@@ -1,0 +1,68 @@
+<!-- <div ng-include="'./views/partials/_header.html'"></div> -->
+<div class="explanation-container hidden-xs" ng-if="!mobileMenuOpen">
+    <div class="container-medium no-gutter">
+        <!-- <div class="col-md-12 col-xs-12 no-gutter">
+            <h2>
+                Connect with new audiences on Daystage.
+            </h2>
+        </div> -->
+        <div class="col-md-4 col-xs-4 no-gutter">
+            <!-- <img src="../images/share.png"/> -->
+            <div class="exp-icon share-icon"></div>
+            <span class="">
+                <b>Share</b>
+                your music & videos</span>
+        </div>
+        <div class="col-md-4 col-xs-4 no-gutter">
+            <!-- <img src="../images/hire.png"/> -->
+            <div class="exp-icon hire-icon"></div>
+            <span class="">
+                <b>Hire</b>
+                musicians for your event
+            </span>
+        </div>
+        <div class="col-md-4 col-xs-4 no-gutter">
+          <div class="exp-icon find-icon"></div>
+            <!-- <img src="../images/find.png"/> -->
+            <span class="">
+                <b>Find</b>
+                today's top musicians</span>
+        </div>
+    </div>
+</div>
+<div class="section clearfix container-fluid home-main-section no-gutter" style="min-height:480px;" ng-hide="mobileMenuOpen">
+    <div class="winner-signup-section clearfix no-gutter">
+
+        <div class="container-fluid login-form" ng-hide="isLoggedIn">
+            <login-form></login-form>
+        </div>
+
+        <winner></winner>
+
+        <div class="signup-container pull-right no-gutter hidden-xs">
+            <div class="header" ng-show="isFacebookVisible" >
+                <h4 class="lbl">Sign Up - It's free.</h4>
+                <button class="btn btn-facebook" fb-signup>Login with Facebook</button>
+                <p class="or">OR</p>
+            </div>
+            <div ng-show="!isFacebookVisible"  class="header">
+                <h4 class="lbl">Please complete the form below...</h4>
+            </div>
+            <div class="container-fluid">
+                <sign-up></sign-up>
+            </div>
+        </div>
+    </div>
+</div>
+<winner-countdown></winner-countdown>
+<div class="section container-fluid home-top-10-section no-gutter" ng-hide="!isShowTopTen()">
+    <div class="container">
+        <h3 class="heading text-center">
+            <img src="images/line.png" alt="..." class="hidden-xs">
+            Today's Top 10
+            <img src="images/line.png" alt="..." class="hidden-xs">
+        </h3>
+        <top-ten></top-ten>
+    </div>
+</div>
+<div ng-include="'./views/partials/_footer.html'"></div>

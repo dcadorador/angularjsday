@@ -1,0 +1,27 @@
+<!-- <div ng-include="'./views/partials/_header.html'"></div> -->
+
+<section layout="row" flex="">
+
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop="" md-whiteframe="4">
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Profile</h1>
+        </md-toolbar>
+        <md-content layout-padding="">
+            <user-profile></user-profile>
+        </md-content>
+    </md-sidenav>
+
+    <md-content flex="" layout-padding="">
+        <div class="user-profile-container container-fluid no-gutter">
+            <div class="container no-gutter">
+                <div class="col-md-4 side-bar no-gutter">
+                    <user-profile class="hidden-sm hidden-xs"></user-profile>
+                </div>
+                <div class="upload-stage-container col-md-8">
+                    <edit-user-profile></edit-user-profile>
+                </div>
+            </div>
+        </div>
+    </md-content>
+
+</section>

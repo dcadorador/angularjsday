@@ -1,0 +1,65 @@
+login {
+    position: relative;
+    top: 5px;
+    #login {
+        cursor: pointer;
+    }
+    .form-group {
+        margin-left: 5px;
+    }
+    .btn-notification {
+        margin-left: 8px;
+        position: relative;
+        .has-notification {
+            position: absolute;
+            &::after {
+                position: relative;
+                content: '';
+                width: 20px;
+                height: 20px;
+                background-color: white;
+            }
+        }
+    }
+    .btn-login {
+        margin-left: 10px;
+    }
+    .user-controls {
+        .notification-dropdown .dropdown-menu {
+            li {
+                a {
+                    padding: 15px;
+                }
+            }
+        }
+        .dropdown {
+            .dropdown-menu {
+                border-radius: 0;
+                border: solid 3px lighten($pitch-black, 40%);
+            }
+            position: relative;
+            top:-3px;
+            left:3px;
+            .profile-picture {
+                display: inline-block;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                background-size: cover;
+            }
+            #btn-avatar-menu {
+                background: none;
+                border: none;
+                .caret {
+                    position: relative;
+                    top: 15px;
+                }
+            }
+        }
+    }
+    //.user-controls
+    .forgot-password-link {
+        color: #fff !important;
+        font-size: 10pt !important;
+    }
+}

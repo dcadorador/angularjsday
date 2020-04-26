@@ -1,0 +1,43 @@
+<div class="search-result-person clearfix">
+
+    <div class="container-fluid clearfix no-gutter">
+
+        <div class="profile-picture-col no-gutter col-md-2 col-xs-2">
+            <div class="rounded-container rc-md"
+                 background-img="{{ user.followed || user.profilePicture }}">
+            </div>
+        </div>
+
+        <div class="col-md-5 col-xs-4 info-col no-gutter">
+            <h4 class="name">{{ user.firstName + ' ' + user.lastName }}</h4>
+            <h5 class="address">{{ user.address }}</h5>
+        </div>
+
+        <ul class="stats-list pull-right">
+            <li class="videos">
+                <div>
+                    <span>Videos</span>
+                    <span>{{ user.videoCount }}</span>
+                </div>
+            </li>
+            <li class="followers">
+                <div>
+                    <span>Followers</span>
+                    <span>{{ user.followersCount }}</span>
+                </div>
+            </li>
+            <li class="applause">
+                <div>
+                    <span>Applause</span>
+                    <span>{{ user.applauseCount }}</span>
+                </div>
+            </li>
+        </ul>
+
+        <!--<div class="col-md-5 stats-col no-gutter pull-right">
+
+        </div>-->
+
+    </div>
+
+</div>

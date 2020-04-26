@@ -1,0 +1,160 @@
+.floating-header {
+    z-index: 9999999;
+    position: fixed;
+    width:100%;
+    box-shadow: 0px -9px 14px 5px black;
+}
+.app-header {
+    z-index: 2;
+    background: $yellow;
+    position: relative;
+    #search:focus,
+    #search:hover {
+        // color: #23527c;
+        text-decoration: none !important;
+    }
+    .header-container {
+        position: relative;
+        top: 0;
+    }
+    @media (max-width: 991px) {
+        height: 50px;
+        // background: url("../images/round-logo-transparent.png") no-repeat center left;
+        background-size: 80px 85px;
+        background-color: $yellow;
+    }
+    .logo-link {
+        text-decoration: none;
+        margin-left: 0;
+        &:focus,
+        &:hover {
+            color: white !important;
+            outline: 0;
+            cursor: pointer;
+        }
+        &.logo-link-white{
+          .logo-first{
+            border-bottom:2px solid $yellow;
+          }
+          .logo-second{
+            border-bottom:2px solid white;
+          }
+        }
+        img {
+            margin-right: -9px;
+            vertical-align: sub;
+            width: 34px;
+        }
+    }
+    .mobile-header-controls {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    .header-controls-container {
+        text-align: center;
+        .mobile-logo {
+            margin-left: 15px;
+            width: 45px;
+            position: relative;
+            top: 2px;
+        }
+        .form-control {
+            // margin: 0 auto;
+            @media (max-width: 299px) {
+                width: 100px;
+            }
+            @media (min-width: 300px) and (max-width: 349px) {
+                width: 160px;
+                // position: relative;
+                // left: 7px;
+                font-size: 12px;
+            }
+            @media (min-width: 350px) and (max-width: 759px) {
+                width: 200px;
+            }
+            @media (min-width: 760px) {
+                width: 40%;
+            }
+        }
+    }
+    .logo-link {
+        .beta{
+          font-size: 18px;
+          text-transform: capitalize;
+        }
+    }
+    @media (max-width: 991px) {
+        .logo-link {
+            display: block;
+            text-align: left;
+            margin-left:15px;
+            &.logo {
+                text-decoration: none;
+                color: white;
+                cursor: pointer;
+                float: none !important;
+            }
+        }
+    }
+    .container {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    .forgot-password-container {
+        a {
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+    .auth-link {
+        margin-right: 20px;
+        position: relative;
+        top: 6px;
+        &.icon-menu {
+            img {
+                width: 28px;
+                height: 28px;
+            }
+            &#search {
+                margin-right: 5px;
+            }
+        }
+    }
+}
+.form-search-stages {
+    position: relative;
+    top: 6px;
+    .input-search {
+        margin-left: 10px;
+        outline: 0 !important;
+        //width: 220px;
+        &:focus {
+            outline: 0 !important;
+            border: none !important;
+            box-shadow: none;
+            z-index: 0;
+        }
+    }
+    #button-search {
+        border: none;
+        background: url('../images/magnifying-glass.png') center center no-repeat #fff;
+        background-size: 25px 25px;
+        height: 35px;
+        width: 40px;
+    }
+    @media (max-width: $screen-sm-max) {
+        #button-search,
+        .input-search {
+            margin-bottom: 10px;
+        }
+    }
+}
+.logo {
+    margin-left: 10px;
+    font-family: $font;
+    font-size: 24pt;
+    text-transform: uppercase;
+    // font-weight: bold;
+    color: #fff;
+}

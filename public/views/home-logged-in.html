@@ -1,0 +1,65 @@
+<!-- <div ng-include="'./views/partials/_header.html'"></div> -->
+
+<!-- <div class="location-search-container hidden-xs" ng-if="!mobileMenuOpen">
+    <div class="container-medium no-gutter">
+        <p class="search-location-label">
+            Find the Top Performers Near You
+        </p>
+        <div class="form-group pull-right col-xs-4 no-gutter">
+            <form novalidate name="SearchLocationForm" search-filter="location" search-value="{{search.location}}" search-filter-on="submit">
+                <input class="form-control location-search-input" type="text" placeholder="Available Soon" ng-model="search.location"/>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="explanation-container-logged hidden-xs" ng-if="!mobileMenuOpen">
+    <div class="container-medium no-gutter">
+        <!-- <div class="col-md-12 col-xs-12 no-gutter">
+            <h2>
+                Connect with new audiences on Daystage.
+            </h2>
+        </div> -->
+        <div class="col-md-12 no-gutter">
+            <!-- <img src="../images/share.png"/> -->
+            <span class="">
+                Your music. Your performance. Your stage. <a ng-click="uploadButtonClick()"> Upload your own </a>
+              </span>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid home-main-section home-logged-in-winner-section no-gutter" ng-if="!mobileMenuOpen">
+    <div class="winner-signup-section clearfix no-gutter">
+        <winner></winner>
+    </div>
+</div>
+
+<div class="container-fluid home-top-10-section no-gutter hidden-xs" ng-if="!mobileMenuOpen">
+    <div class="container-medium no-gutter">
+        <h3 class="heading text-center">
+            <img src="images/line.png" alt="..." class="hidden-xs">
+            Today's Top 10
+            <img src="images/line.png" alt="..." class="hidden-xs">
+        </h3>
+        <top-ten></top-ten>
+    </div>
+</div>
+
+<div class="container-fluid" ng-if="!mobileMenuOpen">
+    <div class="home-vote-caption container no-gutter">
+        <h3 class="heading text-center col-md-6 col-md-offset-3 no-gutter">
+            <img src="images/applause-red.png" alt="">
+            Vote for Tomorrow's Winner
+            <div countdown end-time="winnerAnnouncementEndTime"></div>
+        </h3>
+    </div>
+</div>
+
+<div class="home-logged-in-feed-container container-fluid" ng-if="!mobileMenuOpen">
+    <div class="posts-container">
+        <feed></feed>
+    </div>
+</div>
+
+<div ng-include="'./views/partials/_footer.html'"></div>

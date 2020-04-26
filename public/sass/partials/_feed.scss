@@ -1,0 +1,54 @@
+feed {
+  .jumbotron {
+    margin-top: 20px;
+  }
+
+  .users {
+
+    padding: 20px 10px;
+    padding-top: 40px;
+    background: #fff;
+    position: relative;
+
+    .dropdown {
+
+      * {
+        color: lighten($pitch-black, 40%);
+        // font-family: "Myriad Pro", sans-serif;
+        font-size: 12pt;
+      }
+      position: absolute;
+      top: 8px;
+      right: 8px;
+
+      .dropdown-toggle {
+        border: none;
+        background: #fff;
+        color: grey;
+        .caret {
+          margin-top: 2px;
+          margin-left: 8px;
+          border-top: 15px dashed lighten($pitch-black, 40%) !important;
+          border-right: 8px solid transparent !important;
+          border-left: 8px solid transparent !important;
+        }
+      }
+
+      .dropdown-menu {
+        border-radius: 0;
+        border: solid 3px lighten($pitch-black, 40%);
+        li {
+          text-align: center;
+          cursor: pointer;
+        }
+      }
+
+    }
+
+  }
+
+  md-progress-circular {
+    margin: 0 auto;
+  }
+
+}

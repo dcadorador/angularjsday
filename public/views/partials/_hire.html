@@ -1,0 +1,52 @@
+<div class="body clearfix">
+
+    <form novalidate class="form-horizontal" name="HireForm" ng-submit="hire()">
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Full Name:</label>
+
+            <div class="col-sm-8 control-label">
+                {{ employer.firstName + ' ' + employer.lastName }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Email:</label>
+
+            <div class="col-sm-8 control-label">
+                {{ employer.email }}
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': (HireForm.$submitted ||
+        HireForm.phone.$touched) && HireForm.phone.$invalid}">
+            <label for="phone" class="col-sm-4 control-label">Phone Number:</label>
+
+            <div class="col-sm-8">
+                <input name="phone"
+                       type="text"
+                       class="form-control input-sm"
+                       id="phone"
+                       ng-model="user.phone"
+                       required>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': (HireForm.$submitted ||
+        HireForm.description.$touched) && HireForm.description.$invalid}">
+            <div class="col-sm-12">
+            <textarea name="description"
+                      id="description"
+                      cols="30"
+                      rows="10"
+                      class="form-control"
+                      ng-model="user.description"
+                      required
+                      placeholder="Short description about gig..."></textarea>
+            </div>
+        </div>
+
+    </form>
+
+    <div class="footer clearfix">
+        <button type="button" class="pull-right btn-link" ng-disabled="HireForm.$invalid" ng-click="hire()">Continue</button>
+    </div>
+
+</div>

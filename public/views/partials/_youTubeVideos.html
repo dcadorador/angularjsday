@@ -1,0 +1,146 @@
+<div class="row">
+    <md-progress-circular ng-show="progressCircularVisible" md-mode="indeterminate"></md-progress-circular>
+
+    <button class="btn btn-lg center-block btn-google-auth" ng-click="authenticate()" ng-show="googleAuthButtonVisible">
+    Sign in with Google
+</button>
+
+    <div class="col-xs-12 hidden-xs">
+        <div class="row margin-bottom">
+            <div class="col-xs-12">
+                <div class="alert alert-info">
+                    <strong>Tip:</strong> the more accurate your hashtags are the better the chances of winning the daily Stage.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 visible-xs">
+        <div class="row margin-bottom">
+            <div class="col-xs-12">
+                <div class="alert alert-info">
+                    <strong>Tip:</strong> Can't see your YouTube videos? Make sure you are connected to the right channel on youtube.com
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden-xs col-xs-12 upload-details-container" ng-repeat="video in videos">
+        <div class="row margin-bottom">
+            <div class="col-xs-1">
+                <md-checkbox class="md-primary" ng-model="video.selected"></md-checkbox>
+            </div>
+            <div class="col-xs-2 file-names-container">
+                <div class="preview">
+                    <img ng-src="{{ video.thumbnail }}" alt="...">
+                </div>
+            </div>
+            <div class="col-xs-9">
+                <div class="video-description-container">
+                    <textarea class="form-control" placeholder="Video Description..." ng-model="video.description" name="description" rows="4" required></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row margin-bottom">
+            <div class="col-xs-4">
+                <md-input-container>
+                    <label ng-show="video.category == ''">Select Category</label>
+                    <md-select name="category" ng-model="video.category" ng-class="{ 'has-error': isFirstClick  && video.categoryValidation == true }">
+                        <md-option ng-repeat="category in categories" value="{{ category.id }}" name="category">
+                            {{ category.name }}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div class="col-xs-8">
+                <div class="video-tags-container" ng-class="{'has-error': UploadStageForm.$submitted && UploadStageForm.description.$invalid,
+'has-success': UploadStageForm.$submitted && UploadStageForm.description.$valid}">
+                    <textarea class="video-tags form-control" placeholder="Add your #hashtags #music #vocal" ng-model="video.tags" name="tags" rows="1" required></textarea>
+                </div>
+            </div>
+
+        </div>
+        <!--<div class="visible-xs row margin-bottom">
+        <div class="col-xs-6">
+            <md-input-container class="">
+                <label ng-show="video.category == ''">Select Category</label>
+                <md-select name="category" ng-model="video.category" class="">
+                    <md-option ng-repeat="category in categories" value="{{ category.id }}" name="category">
+                        {{ category.name }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+    </div>-->
+    </div>
+    <div class="visible-xs col-xs-12 upload-details-container" ng-repeat="video in videos">
+        <div class="row margin-bottom">
+            <div class="col-xs-4">
+                <md-checkbox class="md-primary" ng-model="video.selected"></md-checkbox>
+            </div>
+            <div class="col-xs-8">
+                <md-input-container class="">
+                    <label ng-show="video.category == ''">Select Category</label>
+                    <md-select name="category" ng-model="video.category" class="">
+                        <md-option ng-repeat="category in categories" value="{{ category.id }}" name="category">
+                            {{ category.name }}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </div>
+
+        <div class="row margin-bottom">
+
+            <div class="col-xs-4 file-names-container">
+                <div class="preview">
+                    <div class="preview_close" ng-click="removeVideo();">x</div>
+                    <img ng-src="{{ video.thumbnail }}" alt="...">
+                </div>
+            </div>
+            <div class="col-xs-8">
+                <div class="video-description-container">
+                    <textarea class="form-control" placeholder="Video Description..." ng-model="video.description" name="description" rows="4" required></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-bottom">
+
+            <div class="col-xs-12">
+                <div class="video-tags-container" ng-class="{'has-error': UploadStageForm.$submitted && UploadStageForm.description.$invalid,
+'has-success': UploadStageForm.$submitted && UploadStageForm.description.$valid}">
+                    <textarea class="video-tags form-control" placeholder="Add your #hashtags #music #vocal" ng-model="video.tags" name="tags" rows="1" required></textarea>
+                </div>
+            </div>
+
+        </div>
+        <!--<div class="visible-xs row margin-bottom">
+        <div class="col-xs-6">
+            <md-input-container class="">
+                <label ng-show="video.category == ''">Select Category</label>
+                <md-select name="category" ng-model="video.category" class="">
+                    <md-option ng-repeat="category in categories" value="{{ category.id }}" name="category">
+                        {{ category.name }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+    </div>-->
+    </div>
+    <div class="col-xs-12 margin-bottom margin-top">
+        <div class="row ">
+            <div class="col-xs-6">
+            </div>
+
+            <div class="col-xs-4 margin-bottom-x-2">
+                <md-checkbox md-no-ink class="nopadding" aria-label=" Checkbox No Ink " ng-model="isFacebookShare">
+                    Share on facebook!
+                </md-checkbox>
+            </div>
+
+            <div class="col-xs-2">
+                <button class="btn btn-green btn-lg pull-right" ng-click="addYouTubeVideos()">Post</button>
+            </div>
+
+        </div>
+    </div>
+</div>

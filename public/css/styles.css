@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "berlin";
+    src: url("../fonts/BRLNSR.TTF");
+}
+
+@font-face {
+    font-family: "RamaGothicThin";
+    src: url("../fonts/RamaGothic-Thin.ttf");
+}
+
+@font-face {
+    font-family: "RamaGothicLight";
+    src: url("../fonts/RamaGothic-Light.ttf");
+}

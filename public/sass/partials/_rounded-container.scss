@@ -1,0 +1,40 @@
+.rounded-container {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.rc-sm {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.rc-md {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.rc-lg {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.rc-white-frame {
+  border: 3px solid #fff;
+  box-shadow: 0 2px 5px lighten($pitch-black,70%);
+}
+
+.rc-winner {
+  position: relative;
+  // &:before {
+  //   content: '';
+  //   background: url('../images/crown-yellow.png') center center no-repeat;
+  //   background-size: contain;
+  //   width: 50px;
+  //   height: 50px;
+  //   position: absolute;
+  //   left: 33px;
+  //   top: -30px;
+  // }
+}

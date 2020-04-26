@@ -1,0 +1,30 @@
+
+<div class="posts-container">
+    <div class="jumbotron" ng-show="showFollowersJumbo()" ng-cloak>
+        <h3 class="text-center">No followers yet.</h3>
+    </div>
+    <div class="jumbotron" ng-show="showFollowingJumbo()" ng-cloak>
+        <h3 class="text-center">Not following anyone yet.</h3>
+    </div>
+    <div class="users" ng-if="users.length > 0">
+        <div class="dropdown pull-right">
+            <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span>Sort By</span>
+                <span class="caret pull-right"></span>
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="btn-avatar-menu">
+                <li><a ng-click="sortBy('view')">Videos</a></li>
+                <li><a ng-click="sortBy('follower')">Followers</a></li>
+                <li><a ng-click="sortBy('applause')">Applause</a></li>
+            </ul>
+        </div>
+        <user-info ng-repeat="user in users" user="user" ng-cloak profile-link="{{ user.id }}">
+
+
+        </user-info>
+    </div>
+    <upload-stage ng-if="filterMode == 'user' && userId == 'home' " class="col-xs-12 col-md-12 no-gutter"></upload-stage>
+    <post ng-if="posts.length > 0" ng-repeat="post in posts" post="post" ng-cloak class="col-md-12 col-xs-12 no-gutter"></post>
+    <md-progress-circular md-mode="indeterminate" ng-show="isLoading"></md-progress-circular>
+</div>

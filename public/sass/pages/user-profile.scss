@@ -1,0 +1,12 @@
+.user-profile-container {
+  padding-top: 0;
+  @media (max-width: 991px) {
+    .search-result-person {
+      margin: 0 !important;
+      box-shadow: none !important;
+      .profile-picture-col, .info-col {
+        float: left;
+      }
+    }
+  }
+}

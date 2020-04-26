@@ -1,0 +1,16 @@
+<a ng-click="closeBottomSheet()" class="btn-close-bottom-sheet">Hide</a>
+<a ng-click="cancelUpload()" class="btn-cancel">Cancel</a>
+<div layout="row" layout-align="center center">
+    <h4>Uploading {{ filename }}</h4>
+</div>
+<div>
+    <div class="clearfix">
+        <h5 class="pull-left">
+            Uploaded
+        </h5>
+        <h5 class="pull-right">{{ (progress||0) + '%' }}</h5>
+    </div>
+    <div class="progress">
+        <div class="progress-inner" style="width:{{ progress||0 }}%"></div>
+    </div>
+</div>

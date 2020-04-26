@@ -1,0 +1,23 @@
+<h4 class="winning-artist-label">
+    {{ setHeader() }}
+</h4>
+<div class="profile-info clearfix">
+    <div class="winner-profile-pic pull-left rounded-container rc-lg" ng-class="{'rc-winner': isWinner }" background-img="{{ info.user.profilePicture }}" profile-link="{{ info.user.id }}"></div>
+    <h3 class="name" profile-link="{{ info.user.id }}">{{ info.user.firstName + ' ' + info.user.lastName }}</h3>
+    <h5 class="address">
+        <!-- <img src="./images/map-marker-transparent.png" alt="..."> -->
+        {{ info.user.address }}</h5>
+</div>
+<!-- <h4 class="caption">{{ info.stage.description|textOverflow:100 }}</h4>
+<div class="hash-tags">
+    <span ng-show="info.stage.tags && info.stage.tags.length > 0" ng-repeat="tag in info.stage.tags">#{{tag}}</span>
+</div> -->
+<div class="main-buttons">
+    <!-- <follow user="info.user" ng-if="info.user" ng-cloak></follow> -->
+    <div class="rc-lg pull-left">
+
+    </div>
+    <button class="btn winner-button btn-hire" hire="{{info.user.id}}">Hire</button>
+</div>
+<button class="btn winner-button btn-facebook" ng-hide="isLoggedIn" fb-share user="info.user" share-stage="info.stage" share-type="{{ shareType }}">Share
+</button>

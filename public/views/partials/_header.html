@@ -1,0 +1,42 @@
+<div class="header app-header clearfix">
+    <div class="header-container container-medium no-gutter clearfix">
+        <div class="header-controls-container">
+            <!-- <a ng-click="logoClick()" ng-show="isLoggedIn && !isDesktopMode" class="pull-left mobile-logo">
+                <img width="45" src="images/logo-sm.png" />
+            </a> -->
+            <a ng-click="logoClick()" ng-show="!searchMode" class="logo-link logo-link-white logo pull-left">
+                <!-- {{ mbHeaderTitle || (isLoggedIn && !isDesktopMode ? '' : 'Daystage') }} -->
+                <span class="logo-first">Day</span><span class="logo-second">stage</span> <span class="beta"> (Beta) </span>
+            </a>
+            <div class="search" ng-show="searchMode">
+                <form novalidate name="SearchForm" class="form-search-stages col-md-4 hidden-md hidden-lg" ng-show="isLoggedIn" search-filter="q" search-value="{{ query }}" search-filter-on="submit">
+                    <input type="text" class="form-control input-search" placeholder="Search musicians and videos" name="query" ng-model="query" />
+                </form>
+            </div>
+            <div class="mobile-header-controls hidden-md hidden-lg">
+                <a id="search" class="auth-link icon-menu" ng-show="isLoggedIn" ng-click="searchMode=!searchMode" >
+                    <img ng-src="{{ searchMode ? 'images/times-white.png' : 'images/magnifying-glass-white.png' }}" alt="" ng-href="search">
+                </a>
+                <a id="menu" class="auth-link icon-menu" ng-show="isLoggedIn" ng-click="toggleMobileMenu()"><img src="images/menu.png" alt=""></a>
+            </div>
+        </div>
+        <form novalidate name="SearchForm" class="form-search-stages col-md-4 hidden-xs hidden-sm" ng-show="isLoggedIn" search-filter="q" search-value="{{ query }}" search-filter-on="submit">
+            <div class="col-md-4 visible-xs" ng-if="isDesktopMode">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-search" placeholder="Search musicians and videos" name="query" ng-model="query" />
+                        <span class="input-group-btn">
+                      <button id="button-search" class="btn btn-default" type="submit" ng-href="search"></button>
+                    </div>
+            </div>
+
+            <div class="input-group">
+                <input type="text" class="form-control input-search" placeholder="Search musicians and videos" name="query" ng-model="query" />
+                <span class="input-group-btn">
+                    <button id="button-search" class="btn btn-default" type="submit" ng-href="search"></button>
+                </span>
+            </div>
+        </form>
+        <login class="pull-right hidden-xs hidden-sm"></login>
+    </div>
+</div>
+<mobile-menu ng-if="mobileMenuOpen" ng-cloak></mobile-menu>

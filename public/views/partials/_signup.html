@@ -1,0 +1,102 @@
+<form novalidate ng-submit="signUp()" name="SignUpForm">
+    <div class="alert alert-danger" ng-show="errors.length > 0" ng-cloak>
+        <p ng-repeat="error in errors">{{ error }}</p>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 no-gutter" ng-class="{ 'has-error': SignUpForm.firstName.$invalid && (SignUpForm.$submitted || SignUpForm.firstName.$touched),
+                         'has-success': SignUpForm.firstName.$valid && (SignUpForm.$submitted || SignUpForm.firstName.$touched) }">
+            <input ng-model="newUser.firstName" name="firstName" type="text" class="form-control separator" placeholder="First Name" aria-describedby="error-first-name"
+                required>
+        </div>
+        <div class="col-xs-2 no-gutter">
+            <img src="images/user-circled.png" alt="..." class="icon" />
+        </div>
+        <div class="col-xs-10 no-gutter" ng-class="{ 'has-error': SignUpForm.lastName.$invalid && (SignUpForm.$submitted || SignUpForm.lastName.$touched),
+                         'has-success': SignUpForm.lastName.$valid && (SignUpForm.$submitted || SignUpForm.lastName.$touched) }">
+            <input ng-model="newUser.lastName" name="lastName" type="text" class="form-control" placeholder="Last Name" aria-describedby="error-last-name"
+                required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 no-gutter" ng-class="{ 'has-error': SignUpForm.email.$invalid && (SignUpForm.$submitted || SignUpForm.email.$touched),
+                         'has-success': SignUpForm.email.$valid && (SignUpForm.$submitted || SignUpForm.email.$touched) }">
+            <input ng-model="newUser.email" name="email" type="email" class="form-control separator" placeholder="Email Address" aria-describedby="error-email"
+                required>
+            <div ng-show=""></div>
+        </div>
+        <div class="col-xs-2 no-gutter">
+            <img src="images/envelope.png" alt="..." class="icon" />
+        </div>
+        <div class="col-xs-10 no-gutter" ng-class="{ 'has-error': SignUpForm.emailRepeat.$invalid && (SignUpForm.$submitted || SignUpForm.emailRepeat.$touched),
+                         'has-success': SignUpForm.emailRepeat.$valid && (SignUpForm.$submitted || SignUpForm.emailRepeat.$touched) }">
+            <input ng-model="newUser.emailRepeat" name="emailRepeat" type="email" class="form-control" placeholder="Re-enter Email Address"
+                aria-describedby="error-email-repeat" required compare-to="newUser.email">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 no-gutter" ng-class="{ 'has-error': SignUpForm.password.$invalid &&
+        (SignUpForm.$submitted || SignUpForm.password.$touched), 'has-success': SignUpForm.password.$valid &&
+        (SignUpForm.$submitted || SignUpForm.password.$touched) }">
+            <input ng-model="newUser.password" name="password" type="password" class="form-control" placeholder="Password" aria-describedby="error-password"
+                required minlength="6">
+        </div>
+        <div class="col-xs-2 no-gutter">
+            <img src="images/padlock.png" alt="..." class="icon" />
+        </div>
+    </div>
+    <div class="birthdate-input-container row birth-date-drop-container">
+
+        <div class="col-xs-4 no-gutter" ng-class="{ 'has-error': !newUser.birthMonth && (SignUpForm.$submitted),
+        'has-success': newUser.birthMonth && (SignUpForm.$submitted) }">
+            <md-input-container>
+                <label>Month</label>
+                <md-select ng-model="newUser.birthMonth">
+                    <md-option ng-repeat="month in months" value="{{ month }}" name="birthMonth">{{ month }}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div class="col-xs-3 no-gutter" ng-class="{'has-error': !newUser.birthDay && (SignUpForm.$submitted),
+        'has-success': newUser.birthDay && (SignUpForm.$submitted) }">
+            <md-input-container>
+                <label>Day</label>
+                <md-select ng-model="newUser.birthDay">
+                    <md-option ng-repeat="day in days" value="{{ day }}" name="birthDay">{{ day }}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div class="col-xs-3 no-gutter" ng-class="{'has-error': !newUser.birthYear && (SignUpForm.$submitted),
+        'has-success': newUser.birthYear && (SignUpForm.$submitted) }">
+            <md-input-container>
+                <label>Year</label>
+                <md-select ng-model="newUser.birthYear">
+                    <md-option ng-repeat="year in years" value="{{ year }}" name="birthYear">{{ year }}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div class="col-xs-1 no-gutter">
+            <img src="images/cake.png" alt="..." class="icon" />
+        </div>
+    </div>
+    <div class="row gender-row">
+        <div class="gender-input-container col-xs-10" ng-class="{ 'has-error': !newUser.sex && SignUpForm.$submitted,
+         'has-success': newUser.sex && SignUpForm.$submitted }">
+            <md-radio-group ng-model="newUser.sex" layout="row">
+                <md-radio-button flex value="1" class="md-primary">Male</md-radio-button>
+                <md-radio-button flex value="0" class="md-primary">Female</md-radio-button>
+            </md-radio-group>
+        </div>
+        <div class="col-xs-2 no-gutter">
+            <img src="images/gender.png" alt="..." class="icon" />
+        </div>
+    </div>
+    <div class="row terms">
+        By clicking Sign Up, you agree to our <a ui-sref="terms-of-service" target="_blank">Terms of Use</a> and have read our <a ui-sref="privacy-policy" target="_blank">Privacy Policy</a>
+    </div>
+    <div class="button-signup row">
+        <button id="button-signup" type="submit" class="btn btn-yellow btn-lg center-block">
+            {{ signingUp ? 'Sign Up...' : 'Sign Up' }}
+        </button>
+    </div>
+</form>

@@ -1,0 +1,20 @@
+<!-- <div ng-include="'./views/partials/_header.html'"></div> -->
+
+<div class="user-profile-container container-fluid col-xs-12 no-gutter" ng-hide="mobileMenuOpen">
+    <div class="container-medium no-gutter">
+        <div class="col-md-4 side-bar">
+            <user-profile></user-profile>
+        </div>
+        <div class="upload-stage-container col-md-8  col-xs-12 no-gutter" ng-if="!isProfileLoading && activeFilter != 'edit' && activeFilter != 'upload'">
+                <feed></feed>
+        </div>
+        <div class="upload-stage-container col-md-8 col-xs-12" ng-if="activeFilter == 'edit'">
+            <edit-user-profile></edit-user-profile>
+        </div>
+        <div class="upload-stage-container col-md-8 col-xs-12  no-gutter" ng-if="activeFilter == 'upload'">
+            <upload-stage></upload-stage>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'./views/partials/_footer.html'"></div>

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Arima+Madurai');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+body,
+html {
+    background: #F6F6F6 !important;
+    font-family: "Titillium Web" !important;
+}
+
+.read-more-link {
+    cursor: pointer;
+}
+.daystage-tooltip {
+    position: relative;
+    div {
+        &:first-child {
+            width: 90%;
+            border-right: 1px solid;
+            border-color: rgba(255,255,255,0.3);
+            padding-right: 5px;
+        }
+        &:nth-child(2) {
+            width: 7%;
+        }
+        display: inline-block;
+    }
+}
+.tooltip.bottom {
+    .tooltip-arrow {
+        border-bottom-color: #ecc92b !important;
+    }
+}
+.tooltip.in{
+  opacity: 1 !important;
+}
+.tooltip.right {
+    .tooltip-arrow {
+        border-right-color: #ecc92b !important;
+    }
+}
+.tooltip.top {
+    .tooltip-arrow {
+        border-top-color: #ecc92b !important;
+    }
+}
+.tooltip-inner {
+    background-color: #ecc92b !important;
+    padding: 5px 10px;
+    text-align: left !important;
+    max-width: 300px !important;
+    box-shadow: 2px 3px 6px -4px black;
+    font-size: 18px;
+    .glyphicon {
+        position: relative;
+        top: 3px;
+    }
+}
+.close-tooltip {
+    margin-left: 10px;
+    // color:black !important;
+    // position: absolute;
+    // top: 8px;
+    // right: 7px;
+}
+// div[ui-view]{
+//   position:relative;
+// }
+// Vendors
+@import "vendor/angular-material/angular-material.min.css"; // mixins
+@import "mixins"; // Misc
+@import "partials/bootstrap";
+@import "partials/helpers";
+@import "partials/buttons";
+@import "partials/rounded-container";
+@import "partials/dialogs"; // Partial Pages
+@import "partials/header";
+@import "partials/footer";
+@import "partials/upload-bottom-sheet"; // Directives
+@import "partials/login";
+@import "partials/signup";
+@import "partials/winner";
+@import "partials/topTen";
+@import "partials/user-profile";
+@import "partials/edit-user-profile";
+@import "partials/upload-stage";
+@import "partials/stageVideo";
+@import "partials/post";
+@import "partials/feed";
+@import "partials/reset-password";
+@import "partials/user-info";
+@import "partials/youtube-videos";
+@import "partials/post-comments";
+@import "partials/videogular";
+@import "partials/mobile-menu";
+@import "partials/winner-countdown.scss";
+@import "partials/loader"; // Pages
+@import "pages/home";
+@import "pages/home-logged-in";
+@import "pages/misc-pages";
+@import "pages/forgot-password";
+@import "pages/user-profile";
+@import "pages/search";
+@import "pages/reset-password";
+@import "pages/confirm";
+@import "pages/vote-video";
+@import "pages/topten"; // Overrides
+@import "overrides/carousel";
+@import "overrides/md-content";
+@import "overrides/slick-theme";
+@import "overrides/slick";
+@import "overrides/grid";

@@ -1,0 +1,137 @@
+
+<md-progress-circular md-mode="indeterminate" ng-show="isLoading"></md-progress-circular>
+
+<div class="container-fluid paper no-gutter edit-user-profile-container" ng-show="!isLoading">
+
+    <div class="header">
+        Edit Profile
+    </div>
+
+    <form novalidate ng-submit="editProfile()" name="EditProfileForm">
+
+        <div class="container-fluid clearfix no-gutter">
+            <div class="details-container col-md-12">
+
+                <div class="row" background-img="images/user-circled.png">
+                    <div class="form-group col-xs-6 no-gutter" ng-class="{ 'has-error': EditProfileForm.firstName.$invalid &&
+                     (EditProfileForm.$submitted || EditProfileForm.firstName.$touched),
+                         'has-success': EditProfileForm.firstName.$valid &&
+                         (EditProfileForm.$submitted || EditProfileForm.firstName.$touched) }">
+                        <input type="text" class="form-control " id="firstName" name="firstName"
+                               ng-model="userEdit.firstName" placeholder="First Name"
+                               required>
+                    </div>
+                    <div class="form-group col-xs-6 no-gutter" ng-class="{ 'has-error': EditProfileForm.lastName.$invalid &&
+                     (EditProfileForm.$submitted || EditProfileForm.lastName.$touched),
+                         'has-success': EditProfileForm.lastName.$valid &&
+                         (EditProfileForm.$submitted || EditProfileForm.lastName.$touched) }">
+                        <input type="text" class="form-control " id="lastName" name="lastName"
+                               ng-model="userEdit.lastName" placeholder="Last Name" required>
+                    </div>
+                </div>
+
+
+                <!--<div class="row">
+                    <div class="form-group">
+                        <input type="text" class="form-control black-border" id="search-place" name="search-place"
+                               ng-model="userEdit.city" placeholder="Search for places"
+                               required>
+                    </div>
+                </div>-->
+
+                <div class="row" background-img="images/map-marker-dark.png">
+
+                    <div class="form-group" ng-class="{ 'has-error': EditProfileForm.city.$invalid &&
+                     (EditProfileForm.$submitted || EditProfileForm.city.$touched),
+                         'has-success': EditProfileForm.city.$valid &&
+                         (EditProfileForm.$submitted || EditProfileForm.city.$touched) }">
+                        <input type="text" class="form-control " id="search-place" name="city" ng-model="userEdit.city"
+                               placeholder="City" required>
+                    </div>
+                </div>
+
+
+                <div class="row" background-img="images/earth.png">
+                    <div class="form-group" ng-class="{ 'has-error': EditProfileForm.country.$invalid &&
+                     (EditProfileForm.$submitted || EditProfileForm.country.$touched),
+                         'has-success': EditProfileForm.country.$valid &&
+                         (EditProfileForm.$submitted || EditProfileForm.country.$touched) }">
+                        <input type="text" class="form-control " id="country" name="country" ng-model="userEdit.country"
+                               placeholder="Country" required>
+                    </div>
+                </div>
+
+
+                <div class="row" background-img="images/cake.png">
+
+                    <div class="birth-date-inputs clearfix">
+                        <div class="col-xs-2" ng-class="{ 'has-error': !userEdit.birthMonth && (EditProfileForm.$submitted),
+            'has-success': userEdit.birthMonth && (EditProfileForm.$submitted) }">
+                            <md-input-container>
+                                <label>Month</label>
+                                <md-select ng-model="userEdit.birthMonth">
+                                    <md-option ng-repeat="month in months" value="{{ month }}" name="birthMonth">{{
+                                        month }}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+
+                        <div class="col-xs-2" ng-class="{'has-error': !userEdit.birthDay && (EditProfileForm.$submitted),
+            'has-success': userEdit.birthDay && (EditProfileForm.$submitted) }">
+                            <md-input-container>
+                                <label>Day</label>
+                                <md-select ng-model="userEdit.birthDay">
+                                    <md-option ng-repeat="day in days" value="{{ day }}" name="birthDay">{{ day }}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+
+                        <div class="col-xs-2" ng-class="{'has-error': !userEdit.birthYear && (EditProfileForm.$submitted),
+            'has-success': userEdit.birthYear && (EditProfileForm.$submitted) }">
+                            <md-input-container>
+                                <label>Year</label>
+                                <md-select ng-model="userEdit.birthYear">
+                                    <md-option ng-repeat="year in years" value="{{ year }}" name="birthYear">{{ year }}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+
+                        <md-input-container class="is-birthyear-hidden-container">
+                            <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="userEdit.isBirthYearHidden">
+                                Hide year of birth in public profile
+                            </md-checkbox>
+                        </md-input-container>
+
+                    </div><!-- birth date row -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container-fluid bottom-section">
+            <div class="media-container col-md-6">
+                <div class="profile-picture-container">
+                    <img src="" alt="" ngf-thumbnail="userEdit.profileImage" class="select-profile-picture" ngf-select
+                         ng-model="userEdit.profileImage"/>
+
+                    <div class="select-profile-picture" ngf-select ng-model="userEdit.profileImage" accept="image/*"
+                         ngf-max-size="200MB" ng-hide="userEdit.profileImage"
+                         ngf-model-invalid="userEdit.errorFile" ng-class="{ 'has-error': !userEdit.profileImage && (EditProfileForm.$submitted),
+        'has-success': userEdit.profileImage && (EditProfileForm.$submitted) }">
+                        <p>+Upload Picture</p>
+                    </div>
+
+                  
+                </div>
+            </div>
+            <button type="submit" class="btn btn-edit-profile-save btn-lg pull-right">Save</button>
+        </div>
+
+
+    </form>
+</div>

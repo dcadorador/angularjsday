@@ -1,0 +1,163 @@
+edit-user-profile {
+
+  .edit-user-profile-container {
+
+    margin-top: 10px;
+    padding-bottom: 15px;
+
+    .is-birthyear-hidden-container {
+      md-checkbox {
+        margin: 6px 0 0 10px !important;
+      }
+    }
+
+    md-checkbox.md-checked .md-icon {
+      background: $yellow;
+    }
+
+    .header {
+      background-image: url("../images/gear-dark.png");
+      background-position: 10px center;
+      background-repeat: no-repeat;
+      background-size: 25px 25px;
+      background-color: #f6f6f6;
+      font-size: 16pt;
+      padding: 15px 15px 15px 40px;
+    }
+
+    .bottom-section {
+      margin-top: 15px;
+      position: relative;
+
+      @media (min-width: $screen-md-min) {
+        .btn-edit-profile-save {
+          position: absolute;
+          bottom: 0;
+          right: 15px;
+        }
+      }
+
+      @media (max-width: $screen-sm-max) {
+        .btn-edit-profile-save {
+          margin-top: 15px;
+        }
+      }
+
+    }
+  }
+
+  .has-error {
+    .form-control {
+      background: url('../images/x-red.png') right center no-repeat;
+      background-size: 16px 16px;
+      padding-right: 20px;
+    }
+    &.select-profile-picture {
+      border: solid 2px $brand-danger;
+    }
+    &.select-profile-picture p {
+      color: $brand-danger;
+    }
+    md-input-container .md-select-placeholder span,
+    md-radio-button .md-label span{
+      color: $brand-danger !important;
+    }
+  }
+
+  .has-success {
+    .form-control {
+      background: url('../images/check-green.png') right center no-repeat;
+      background-size: 16px 16px;
+      padding-right: 20px;
+    }
+    md-input-container .md-select-placeholder span,
+    md-radio-button .md-label span{
+      color: $brand-success !important;
+    }
+  }
+
+  .form-control {
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .details-container {
+
+    .row {
+
+      margin: 0 !important;
+
+      padding-left: 30px;
+      border-bottom: solid 1px lighten($pitch-black, 70%);
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      background-size: 25px 25px;
+      background-position: center left;
+      background-repeat: no-repeat;
+
+
+      .form-group {
+        margin-bottom: 0;
+      }
+
+      #lastName {
+        border-left: solid 1px lighten($pitch-black, 70%);
+      }
+
+    }
+
+  }//.details-container
+
+  .select-profile-picture {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: solid 2px lighten($pitch-black, 70%);
+    margin: 0 auto;
+    p {
+      color: lighten($pitch-black, 70%);
+      font-size: 14pt;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .youtube-link-container {
+    margin-top: 20px;
+    text-align: right;
+    img {
+      margin-top: -20px;
+      height: 40px;
+      width: 100px;
+    }
+  }
+
+  .youtube-container {
+
+    padding-top: 8%;
+    text-align: center;
+
+    .heading {
+      text-align: center;
+      color: lighten($pitch-black, 50%);
+    }
+
+  }
+
+  .warning {
+    margin-top: 20px;
+    font-size: 10pt;
+    color: lighten($pitch-black, 50%);
+  }
+
+
+}

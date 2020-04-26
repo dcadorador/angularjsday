@@ -1,0 +1,183 @@
+.btn {
+    box-shadow: none !important;
+    // border: none !important;
+    outline: none !important;
+    &:active,
+    &:focus,
+    &:hover {
+        box-shadow: none !important;
+        // border: none !important;
+        outline: none !important;
+    }
+    &:focus,
+    &:hover {
+        // background-color: inherit !important;
+    }
+}
+.btn-black {
+    @include button-variant(#fff, $pitch-black, $pitch-black);
+}
+.btn-yellow {
+    @include button-variant(#fff, $yellow, $yellow);
+    border-radius: 0;
+    text-shadow: 0 2px 2px lighten($pitch-black, 70%);
+}
+.btn-follow {
+    @include button-variant(#000, #f9f9f9, #BFBFBF);
+    width: 80px;
+}
+.btn-hire {
+    @include button-variant(#000, #f7d53d, #B79E2D);
+    width: 80px;
+}
+.btn-facebook {
+    &:active {
+        background-image: url('../images/facebook.svg') !important;
+    }
+    background-image: url('../images/facebook.svg');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    @include button-variant(#fff, #5679C1, #5167aa);
+    padding-left: 40px;
+    padding-right: 10px;
+    border-radius: 3px;
+    &.btn-lg {
+        background-size: 30px 30px;
+        background-position: left center;
+    }
+}
+.btn-upload-video {
+    @include button-variant(lighten($pitch-black, 30%), #fff, #fff);
+    height: 34px;
+    font-size: 15px;
+    img {
+        position: relative;
+        top: -2px;
+        width: 20px;
+        height: 20px;
+    }
+}
+.btn-edit-profile {
+    @include button-variant(lighten($pitch-black, 30%), #fff, #fff);
+    img {
+        width: 25px;
+        height: 25px;
+    }
+    span {
+        color: lighten($pitch-black, 40%);
+        margin-left: 20px;
+    }
+    width: 100%;
+    border-radius: 0;
+    vertical-align: middle;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 12pt;
+}
+.btn-post-control {
+    @include button-variant(lighten($pitch-black, 30%), #fff, #fff);
+    background-size: 24px 24px;
+    min-height: 28px;
+    min-width: 38px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    outline: 0 !important;
+    margin-right: 5px;
+    margin-left: 5px;
+    &:focus,
+    &:hover {
+        background-color: inherit !important;
+    }
+    &.btn-applause {
+        background-image: url("../images/applause-red.png");
+    }
+    &.btn-applause2 {
+        background-image: url("../images/applause-dark.png");
+    }
+    &.btn-comment {
+        background-image: url("../images/callout.png");
+    }
+    &.btn-views {
+        background-image: url("../images/eye-dark.png");
+    }
+}
+.btn-edit-profile-save,
+.btn-green {
+    @include button-variant(#fff, #3EC279, #3EC279);
+    border-radius: 0;
+    padding: 10px 30px;
+    font-size: 12pt;
+    text-shadow: 0 2px 2px lighten($pitch-black, 70%);
+}
+.btn-upload-stage-video {
+    @include button-variant(lighten($pitch-black, 30%), lighten($pitch-black, 90%), lighten($pitch-black, 90%));
+    border-radius: 0;
+    width: 95%;
+    background: url("../images/plus-circled.png") no-repeat lighten($pitch-black, 90%);
+    background-size: 40px 40px;
+    background-position: 10px center;
+    padding: 25px;
+}
+.btn-stage {
+    /* padding: 1px 2px 1px 2px !important; */
+    font-size: 13px;
+    /* text-shadow: 0 2px 2px #c7c5c5; */
+    background: #f7d53d;
+    color: #8a8a8a;
+    border-radius: 5px;
+    width: 80%;
+    /* margin-top: 2px; */
+    margin: 8px;
+}
+.btn-video-control {
+    background: none;
+    color: #fff;
+    padding-left: 50px;
+    outline: 0;
+    cursor: default;
+    &:active,
+    &:focus,
+    &:hover {
+        color: white;
+        outline: 0;
+    }
+    &.views {
+        background: url("../images/eye-dark.png") center left no-repeat;
+        background-size: 40px 40px;
+    }
+    &.applause {
+        background: url("../images/applause-dark.png") center left no-repeat;
+        background-size: 30px 30px;
+    }
+    &.pause {
+        background: url("../images/pause-circled.png") center left no-repeat;
+        background-size: 30px 30px;
+    }
+    &.play {
+        background: url("../images/play-circled.png") center left no-repeat;
+        background-size: 30px 30px;
+    }
+}
+.btn-notification {
+    width: 34px;
+    height: 34px;
+    background: url("../images/lightning.png") center center no-repeat;
+    background-size: contain;
+}
+.btn-google-auth {
+    @include button-variant(#fff, #db4437, #db4437);
+}
+.btn-applause-control {
+    background-image: url("../images/applause-dark.png");
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 35px;
+    &.applauded {
+        background-image: url("../images/applause-red.png") !important;
+    }
+}
+.btn-blue {
+    @include button-variant(#fff, #3015a0, #3015a0);
+}

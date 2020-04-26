@@ -1,0 +1,132 @@
+<div class="post hidden-xs">
+    <div class="heading clearfix">
+        <div class="rounded-container rc-md pull-left" profile-link="{{ post.user.id }}" background-img="{{ post.user.profilePicture }}"></div>
+        <div class="pull-left" profile-link="{{ post.user.id }}">
+            <h4 class="name">{{ post.user.firstName + ' ' + post.user.lastName }}</h4>
+            <h4 class="address">{{ post.user.address }}</h4>
+        </div>
+        <div class="pull-right">
+            <div class="ds-dropdown dropdown pull-right" ng-hide="edit">
+                <span class="time">{{ post.stage.dateTime }}</span>
+                <a class="menu-link" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
+                    <li>
+                        <a href="" ng-click="edit=true" ng-show="own">Edit Description</a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="deleteStage()" ng-show="own">Delete Video</a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="report()" ng-hide="own">Report Video</a>
+                    </li>
+                    <!-- <li role="separator" class="divider"></li> -->
+                    <!-- <li>
+                        <a href="">
+                            <button type="button" class="btn btn-facebook center-block" fb-share user="post.user" share-stage="post.stage">Share</button>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="fb-share-video-feed">
+                <a href="">
+                    <button type="button" class="btn btn-facebook center-block" fb-share user="post.user" share-stage="post.stage">Share</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="videogular-container video-container">
+        <videogular vg-update-time="updateVideoTime($currentTime, $duration)" class="preview" vg-theme="css/videogular.min.css">
+            <vg-media vg-src="post.sources" vg-native-controls="false" vg-youtube="rel=0;showinfo=0;iv_load_policy=0;" vg-preload="'none'"></vg-media>
+            <vg-controls vg-autohide="true" vg-autohide-time="2000">
+                <vg-play-pause-button></vg-play-pause-button>
+                <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                <vg-scrub-bar>
+                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                </vg-scrub-bar>
+                <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                <vg-volume>
+                    <vg-mute-button></vg-mute-button>
+                    <vg-volume-bar></vg-volume-bar>
+                </vg-volume>
+                <vg-fullscreen-button></vg-fullscreen-button>
+            </vg-controls>
+            <vg-buffering  ng-if="!post.stage.isYouTube"></vg-buffering>
+            <vg-overlay-play ng-if="!post.stage.isYouTube"></vg-overlay-play>
+            <vg-video-hook stage="post.stage"></vg-video-hook>
+            <vg-poster ng-if="!post.stage.isYouTube" vg-url='post.stage.thumbnail'></vg-poster>
+        </videogular>
+    </div>
+    <div class="caption-container">
+        <p class="caption" ng-if="!isEditMode()">
+            <hm-read-more hm-text="{{ post.stage.description }}" hm-limit="100" hm-more-text="read more" hm-less-text="read less" hm-dots-class="dots" hm-link-class="read-more-link"></hm-read-more>
+            <!-- {{ post.stage.description }} -->
+        </p>
+        <textarea class="edit-description-input form-control" ng-if="isEditMode()" rows="3" ng-model="tempDescription"></textarea>
+
+        <div class="edit-description-controls pull-right">
+            <button ng-if="isEditMode()" class="btn btn-success btn-xs" ng-click="updateDescription()">Save</button>
+            <button ng-if="isEditMode()" class="btn btn-default btn-xs" ng-click="setEdit(false)">Cancel</button>
+        </div>
+
+        <p class="hash-tags">
+            <a ng-href="" ng-repeat="tag in post.stage.tags track by $index">#{{ tag }}</a>
+        </p>
+    </div>
+    <div class="controls clearfix">
+        <div class="pull-left">
+            <button type="button" ng-disabled="applauseToggling" class="btn btn-post-control" ng-class="{'btn-applause':post.stage.isApplauded,'btn-applause2':!post.stage.isApplauded}" ng-click="post.stage.isApplauded ? removeApplause() : applause()"></button>
+            <span ng-click="post.stage.isApplauded ? removeApplause() : applause()">
+                {{ post.stage.applauseCount }}
+                {{ post.stage.applauseCount !== 1 ? 'Applauses' : 'Applause' }}
+            </span>
+            <button type="button" class="btn btn-post-control btn-comment" ng-class="{'active':commentContainerVisible}" ng-click="commentContainerVisible?hideCommentBox():showCommentBox()"></button>
+            <span ng-click="commentContainerVisible?hideCommentBox():showCommentBox()">
+                {{ post.stage.commentCount }}
+                {{ post.stage.commentCount !== 1 ? 'Comments' : 'Comment' }}
+            </span>
+        </div>
+        <div class="pull-right views">
+            <span>{{post.stage.viewsCount}}</span>
+        </div>
+    </div>
+    <div class="comments" uib-collapse="!commentContainerVisible" ng-cloak>
+        <form ng-submit="postComment()" name="CommentForm" class="comment-form form-group clearfix">
+            <div class="col-md-9 no-gutter">
+                <input type="text" class="form-control" placeholder="Write comment" ng-model="comment.text" required>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-yellow btn-block" type="submit" ng-disabled="CommentForm.$invalid">Post</button>
+            </div>
+        </form>
+        <div class="line" ng-show="post.comments.length > 0"></div>
+        <post-comments comments="post.comments" ng-show="post.comments.length > 0"></post-comments>
+    </div>
+</div>
+
+<div class="post-mobile visible-xs clearfix">
+    <div class="clearfix post">
+        <div class="preview col-xs-4 no-gutter" ng-click="showVideo()">
+            <img ng-src="{{ post.stage.isYouTube ? '//img.youtube.com/vi/' + post.stage.youTubeId + '/mqdefault.jpg' : post.stage.thumbnail }}" alt="">
+        </div>
+        <div class="info col-xs-8">
+            <div class="details">
+                <div class="profile-picture pull-left"></div>
+                <div class="description">
+                  <!-- <hm-read-more hm-text="{{ post.stage.description }}" hm-limit="100" hm-more-text="read more" hm-less-text="read less" hm-dots-class="dots" hm-link-class="read-more-link"></hm-read-more> -->
+                    {{ post.stage.description|textOverflow:130 }}
+                    <br/>
+                </div>
+                <p class="tags">
+                    <a ng-href="" ng-repeat="tag in post.stage.tags track by $index">#{{ tag }}&nbsp;</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="controls col-xs-8 col-xs-offset-4">
+        <div class="views">{{ post.stage.viewsCount }}</div>
+        <button type="button" class="btn btn-post-control" ng-class="{'btn-applause':post.stage.isApplauded,'btn-applause2':!post.stage.isApplauded}" ng-click="post.stage.isApplauded ? removeApplause() : applause()"></button>
+        {{ post.stage.applauseCount }}
+    </div>
+</div>

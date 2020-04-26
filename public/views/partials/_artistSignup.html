@@ -1,0 +1,48 @@
+<form novalidate name="ArtistSignUpForm" ng-submit="toArtist()">
+
+    <div class="form-group" ng-class="{'has-error': ArtistSignUpForm.name.$invalid &&
+        (ArtistSignUpForm.name.$touched || ArtistSignUpForm.$submitted)}">
+        <input type="text" class="form-control black-border" name="name" ng-model="artist.name" placeholder="Performer Name"
+               required>
+        <div class="help-block" ng-show="ArtistSignUpForm.name.$invalid && (ArtistSignUpForm.name.$touched || ArtistSignUpForm.$submitted)" ng-messages="ArtistSignUpForm.name.$error">
+            <p ng-message="required">Name is required.</p>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ArtistSignUpForm.fbLink.$invalid &&
+        (ArtistSignUpForm.name.$touched || ArtistSignUpForm.$submitted)}">
+        <input type="text" class="form-control black-border" name="fbLink" ng-model="artist.fbLink" placeholder="Facebook Page Link">
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ArtistSignUpForm.phone.$invalid &&
+        (ArtistSignUpForm.name.$touched || ArtistSignUpForm.$submitted)}">
+        <input type="text" class="form-control black-border" name="phone" ng-model="artist.phone" placeholder="Phone Number"
+            required>
+        <div class="help-block" ng-show="ArtistSignUpForm.phone.$invalid && (ArtistSignUpForm.phone.$touched || ArtistSignUpForm.$submitted)" ng-messages="ArtistSignUpForm.phone.$error">
+            <p ng-message="required">Phone Number is required.</p>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ArtistSignUpForm.email.$invalid &&
+        (ArtistSignUpForm.name.$touched || ArtistSignUpForm.$submitted)}">
+        <input type="email" class="form-control black-border" name="email" ng-model="artist.email" placeholder="Email"
+            required>
+        <div class="help-block" ng-show="ArtistSignUpForm.email.$invalid && (ArtistSignUpForm.email.$touched || ArtistSignUpForm.$submitted)" ng-messages="ArtistSignUpForm.email.$error">
+            <p ng-message="required">Email is required.</p>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ArtistSignUpForm.categories.$invalid &&
+        (ArtistSignUpForm.name.$touched || ArtistSignUpForm.$submitted)}">
+        <input type="text" class="form-control black-border" name="categories" ng-model="artist.categories" placeholder="Category"
+            required>
+        <div class="help-block" ng-show="ArtistSignUpForm.categories.$invalid && (ArtistSignUpForm.categories.$touched || ArtistSignUpForm.$submitted)" ng-messages="ArtistSignUpForm.categories.$error">
+            <p ng-message="required">Category is required.</p>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-black btn-lg center-block">
+        {{ signingUp ? 'Sign Up...' : 'Sign Up' }}
+    </button>
+
+</form>

@@ -1,0 +1,46 @@
+/*.carousel-inner > .item.next,
+.carousel-inner > .item.active.right {
+  left: 0;
+  -webkit-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -o-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+
+.carousel-inner > .item.prev,
+.carousel-inner > .item.active.left {
+  left: 0;
+  -webkit-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -o-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+
+.carousel-inner .active.left { left: -25%; }
+.carousel-inner .active.right { left: 25%; }
+.carousel-inner .next        { left:  25%; }
+.carousel-inner .prev        { left: -25%; }*/
+
+.carousel-control 			 { width:  4%; }
+.carousel-control.left,.carousel-control.right {margin-left:15px;}
+@media (max-width: 767px) {
+  .carousel-inner .active.left { left: -100%; }
+  .carousel-inner .next        { left:  100%; }
+  .carousel-inner .prev		 { left: -100%; }
+  .active > div { display:none; }
+  .active > div:first-child { display:block; }
+
+}
+@media (min-width: 767px) and (max-width: 900px ) {
+  .carousel-inner .active.left { left: -50%; }
+  .carousel-inner .next        { left:  50%; }
+  .carousel-inner .prev		 { left: -50%; }
+  .active > div { display:none; }
+  .active > div:first-child { display:block; }
+  .active > div:first-child + div { display:block; }
+}
+@media (min-width: 901px ) {
+  .carousel-inner .active.left { left: -25%; }
+  .carousel-inner .next        { left:  25%; }
+  .carousel-inner .prev		 { left: -25%; }
+}

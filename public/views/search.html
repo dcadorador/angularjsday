@@ -1,0 +1,83 @@
+<!-- <div ng-include="'./views/partials/_header.html'"></div> -->
+<div class="search-page-container container-fluid" ng-hide="mobileMenuOpen">
+    <div class="row search-categories-row">
+        <div class="container search-categories-container no-gutter">
+            <ul class="categories-list">
+                <li class="category" ng-class="{'active': searchType=='stage'}">
+                    <a search-filter="type" search-value="stage" search-filter-on="click">
+                        <img ng-src="images/snow-flake-dark.png" alt="..." class="icon">
+                        Videos
+                    </a>
+                </li>
+                <li class="category" ng-class="{'active': searchType=='people'}">
+                    <a search-filter="type" search-value="people" search-filter-on="click">
+                        <img src="images/person-dark.png" alt="..." class="icon">
+                        People
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row search-results-row">
+        <div class="container search-results container no-gutter">
+
+            <h5 class="search-result-label">
+                Search results for "<strong>{{ query }}</strong>"
+            </h5>
+
+            <div class="row no-gutter">
+                <div class="col-md-3 side-bar hidden-xs hidden-sm">
+
+                    <div class="sort-by">
+                        <h5 class="caption">
+                            Sort By
+                        </h5>
+                        <ul class="sort-by-options" search-sort-by ng-show="searchType=='stage'">
+                            <li class="option" ng-class="{'active': active=='recent'}">
+                                <a search-filter="sortBy" search-value="recent" search-filter-on="click">Recent</a>
+                            </li>
+                            <li class="option" ng-class="{'active': active=='applause'}">
+                                <a search-filter="sortBy" search-value="applause" search-filter-on="click">Applause</a>
+                            </li>
+                            <li class="option" ng-class="{'active': active=='views'}">
+                                <a search-filter="sortBy" search-value="views" search-filter-on="click">Views</a>
+                            </li>
+                        </ul>
+                        <ul class="sort-by-options" search-sort-by ng-show="searchType=='people'">
+                            <li class="option" ng-class="{'active': active=='followers'}">
+                                <a search-filter="sortBy" search-value="followers" search-filter-on="click">Followers</a>
+                            </li>
+                            <li class="option" ng-class="{'active': active=='videos'}">
+                                <a search-filter="sortBy" search-value="videos" search-filter-on="click">Videos</a>
+                            </li>
+                            <li class="option" ng-class="{'active': active=='applause'}">
+                                <a search-filter="sortBy" search-value="applause" search-filter-on="click">Applause</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--<div class="location">
+                        <form novalidate
+                              name="SearchLocationForm"
+                              search-filter="location"
+                              search-value="{{search.location}}"
+                              search-filter-on="submit">
+
+                            <input class="location-input form-control"
+                                   type="text"
+                                   placeholder="Location"
+                                   ng-model="search.location"/>
+
+                        </form>
+                    </div>-->
+
+                </div>
+                <div class="col-md-9 search-results">
+                    <search-results></search-results>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

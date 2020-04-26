@@ -1,0 +1,56 @@
+.misc-page {
+  
+  .container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .misc-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+
+    li {
+      padding-bottom: 10px;
+    }
+
+    li a {
+      font-size: 16pt;
+      text-decoration: none;
+      color: lighten($pitch-black,30%);
+    }
+
+    li.active a {
+      font-weight: bold;
+      color: $pitch-black;
+    }
+  }
+
+  .content-container {
+
+    background: #fff;
+    padding-bottom: 150px;
+    box-shadow: 0 2px 2px #888888;;
+
+    .title {
+      margin: 0;
+      padding: 20px 40px;
+      border-bottom: solid 2px lighten($pitch-black,50%);
+    }
+
+    .content {
+      font-size: 14pt;
+      padding-top: 40px;
+      padding-left: 40px;
+      padding-right: 40px;
+      color: lighten($pitch-black,30%);
+
+      .answer {
+        padding-left: 20px;
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,106 @@
+<!-- <div ng-include="'./views/partials/_header.html'"></div> -->
+
+<!-- <div class="location-search-container hidden-xs" ng-hide="mobileMenuOpen || !isLoggedIn">
+    <div class="container-medium no-gutter">
+        <p class="search-location-label">
+            Find the Top Performers Near You
+        </p>
+        <div class="form-group pull-right col-xs-4 no-gutter">
+            <form novalidate name="SearchLocationForm" search-filter="location" search-value="{{search.location}}" search-filter-on="submit">
+                <input class="form-control location-search-input" type="text" placeholder="Available Soon" ng-model="search.location"/>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="explanation-container-logged hidden-xs" ng-if="!mobileMenuOpen">
+    <div class="container-medium no-gutter">
+        <!-- <div class="col-md-12 col-xs-12 no-gutter">
+            <h2>
+                Connect with new audiences on Daystage.
+            </h2>
+        </div> -->
+        <div class="col-md-12 no-gutter">
+            <!-- <img src="../images/share.png"/> -->
+            <span class="">
+                Your music. Your performance. Your stage. <a ng-click="uploadButtonClick()"> Upload your own </a>
+              </span>
+        </div>
+    </div>
+</div>
+
+<div class="explanation-container hidden-xs" ng-if="!mobileMenuOpen && !isLoggedIn">
+    <div class="container-medium no-gutter">
+        <!-- <div class="col-md-12 col-xs-12 no-gutter">
+            <h2>
+                Connect with new audiences on Daystage.
+            </h2>
+        </div> -->
+        <div class="col-md-4 col-xs-4 no-gutter">
+            <!-- <img src="../images/share.png"/> -->
+            <div class="exp-icon share-icon"></div>
+            <span class="">
+                <b>Share</b>
+                your music & videos</span>
+        </div>
+        <div class="col-md-4 col-xs-4 no-gutter">
+            <!-- <img src="../images/hire.png"/> -->
+            <div class="exp-icon hire-icon"></div>
+            <span class="">
+                <b>Hire</b>
+                musicians for your event
+            </span>
+        </div>
+        <div class="col-md-4 col-xs-4 no-gutter">
+          <div class="exp-icon find-icon"></div>
+            <!-- <img src="../images/find.png"/> -->
+            <span class="">
+                <b>Find</b>
+                today's top musicians</span>
+        </div>
+    </div>
+</div>
+
+<div id="vote-video-wrapper">
+    <div class="section clearfix container-fluid home-main-section no-gutter" ng-hide="mobileMenuOpen">
+        <div class="winner-signup-section clearfix no-gutter">
+
+            <div class="container-fluid login-form" ng-hide="isLoggedIn">
+                <login-form></login-form>
+            </div>
+
+            <!-- <winner></winner> -->
+            <public-vote></public-vote>
+
+            <div ng-hide="isLoggedIn" class="signup-container pull-right no-gutter hidden-xs">
+                <div class="header">
+                    <h4 class="lbl">Sign Up - It's free.</h4>
+                    <button class="btn btn-facebook" fb-signup>Login with Facebook</button>
+                    <p class="or">OR</p>
+                </div>
+                <div class="container-fluid">
+                    <sign-up></sign-up>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- <div>
+    <h3 class="heading text-center col-md-6 col-md-offset-3 no-gutter">
+        Help Nla Bla Win Todays's Contest!
+        <img src="images/applause-red.png" alt="">
+    </h3>
+</div> -->
+<!-- <div class="home-vote-caption container no-gutter">
+        <h3 class="heading text-center col-md-6 col-md-offset-3 no-gutter">
+            Help Nla Bla Win Todays's Contest!
+            <img src="images/applause-red.png" alt="">
+        </h3>
+    </div> -->
+</div>
+
+<winner-countdown></winner-countdown>
+
+<div ng-include="'./views/partials/_footer.html'"></div>

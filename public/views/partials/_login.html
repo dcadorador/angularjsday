@@ -1,0 +1,90 @@
+<script type="text/ng-template" id="uploadPopoverTemplate.html">
+    <div class="daystage-tooltip">
+        <div>
+            <span>
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Upload your first video
+            </span>
+            <br/>
+            <span>
+                to begin getting exposure!
+            </span>
+        </div>
+        <div>
+            <span class="pull-right close-tooltip" style="position: relative;top: -4px;" ng-click="userTooltips.upload.close()">
+                X
+            </span>
+        </div>
+    </div>
+</script>
+
+<div class="user-controls pull-right" ng-show="userLoggedIn">
+    <button
+        ng-click="uploadButtonClick()"
+        class="btn btn-upload-video pull-left"
+        tooltip-is-open="userTooltips.upload.show"
+        tooltip-placement="{{userTooltips.upload.placement}}"
+        tooltip-trigger="'none'"
+        uib-tooltip-template="userTooltips.upload.html"
+        tooltip-animation="userTooltips.upload.isAnimation"
+        tooltip-enable="userTooltips.upload.isEnabled">
+        <img src="images/singer.png" alt="...">
+        Upload Video
+    </button>
+    <div class="account-dropdown dropdown pull-right">
+        <button class="dropdown-toggle" type="button" id="btn-avatar-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span background-img="{{info.profileImage||'images/user-circled.png'}}" class="profile-picture"></span>
+            <span class="caret pull-right"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btn-avatar-menu">
+            <li>
+                <a ui-sref="user-profile({ userId: 'home', activeFilter: 'user' })">{{ info.firstName +' '+ info.lastName }}</a>
+            </li>
+            <li>
+                <a ui-sref="help">Help & Feedback</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <a id="login" ng-href="" ng-click="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--<div class="notification-dropdown dropdown pull-right">
+        <button class="btn btn-notification dropdown-toggle has-notification" id="btn-notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btn-notification">
+            <li><a ng-href="" ng-click="showUploadBottomSheet()">Upload Progress</a></li>
+        </ul>
+    </div>-->
+
+</div>
+
+<form ng-hide="userLoggedIn" novalidate ng-submit="login()" hide-xs name="LoginForm" class="form-inline">
+    <div
+        id="login-form-email"
+        class="form-group pull-left"
+        ng-class="{'has-error': (LoginForm.email.$invalid &&
+    (LoginForm.$submitted || LoginForm.email.$touched)) || errors.length > 0, 'has-success':
+    LoginForm.email.$valid && (LoginForm.$submitted || LoginForm.email.$touched) }">
+        <input name="email" type="email" class="form-control input-sm" id="email" placeholder="Email Address" ng-model="User.email" required>
+        <p class="help-block" ng-cloak ng-repeat="error in errors">{{ error }}</p>
+    </div>
+
+    <div
+        id="login-form-password"
+        class="form-group pull-left"
+        ng-class="{'has-error': (LoginForm.password.$invalid &&
+    (LoginForm.$submitted || LoginForm.password.$touched)) || errors.length > 0, 'has-success':
+    LoginForm.password.$valid && (LoginForm.$submitted || LoginForm.password.$touched) }">
+        <input name="password" type="password" class="form-control input-sm" id="password" placeholder="Password" ng-model="User.password" required>
+        <p class="help-block">
+            <a ui-sref="forgot-password" class="forgot-password-link">Forgot password</a>
+        </p>
+    </div>
+
+    <button type="submit" class="btn btn-black btn-login">Log in</button>
+    <button type="button" class="btn btn-black" ng-hide="('home'|isState) || userLoggedIn" ui-sref="home" ng-disabled="('forgot-password'|isState)">
+        Sign Up
+    </button>
+</form>

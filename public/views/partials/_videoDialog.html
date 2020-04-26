@@ -1,0 +1,39 @@
+<md-dialog class="video-dialog" flex="30" aria-label="Hire">
+    <a href="" class="close" ng-click="cancel()">x</a>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <p>Video</p>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="videogular-container video-container">
+            <videogular vg-native-fullscreen="false" class="preview" vg-theme="css/videogular.min.css">
+                <vg-media vg-src="post.sources" vg-native-controls="false" vg-youtube="rel=1;showinfo=1" vg-preload="post.stage.preload"></vg-media>
+                <vg-controls vg-autohide="true" vg-autohide-time="2000">
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                        <vg-volume-bar></vg-volume-bar>
+                    </vg-volume>
+                    <vg-fullscreen-button></vg-fullscreen-button>
+                </vg-controls>
+                <vg-buffering></vg-buffering>
+                <vg-overlay-play></vg-overlay-play>
+                <vg-video-hook stage="post.stage"></vg-video-hook>
+                <vg-poster ng-if="!post.stage.isYouTube" vg-url='post.stage.thumbnail'></vg-poster>
+            </videogular>
+        </md-dialog-content>
+        <div class="container-fluid">
+            <p class="description">
+                <hm-read-more hm-text="{{ post.stage.description }}" hm-limit="100" hm-more-text="read more" hm-less-text="read less" hm-dots-class="dots" hm-link-class="read-more-link"></hm-read-more>
+                <!-- {{ post.stage.description }} -->
+            </p>
+            <p class="author">By:
+                {{ post.user.firstName + ' ' + post.user.lastName }}</p>
+        </div>
+    </md-dialog>

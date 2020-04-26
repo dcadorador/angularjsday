@@ -1,0 +1,23 @@
+<div style="width:800px; margin:0 auto;">
+    <div>
+        <h2>Unsubscribe:</h2>
+        <p>To unsubscribe from Daystage's newsletter please enter your email below:</p>
+    </div>
+    <hr>
+    <div style="margin:0 auto;">
+        <form novalidate  ng-submit="submit()">
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <input name="email"
+                           type="text"
+                           class="form-control"
+                           id="email"
+                           ng-model="user.email"
+                           placeholder="e.g myname@example.com"
+                           required><br/>
+                    <button type="button" class="btn btn-warning btn-sm center-block" ng-click="submit()">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

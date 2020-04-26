@@ -1,0 +1,52 @@
+<div class="container-fluid app-menu" ng-cloak>
+    <div class="list-container col-md-12 no-gutter">
+        <ul>
+            <li>
+                <a ui-sref="user-profile({ userId: 'home', activeFilter: 'user'})">
+                    <img src="images/upload.png" alt="" class="icon"> Upload Video
+                </a>
+            </li>
+            <li>
+                <a ui-sref="user-profile({ userId: 'home', activeFilter: 'edit' })">
+                    <div background-img="{{user.profileImage||'images/user-circled.png'}}" class="rounded-container icon"></div>
+                    <span id="name">{{ user.firstName + ' ' + user.lastName }}</span>
+                </a>
+            </li>
+            <li>
+                <a ui-sref="topten">
+                    <img src="images/blue-ten.png" alt="" class="icon"> Top 10
+                </a>
+            </li>
+            <li>
+                <a ui-sref="home">
+                    <img src="images/round-mic.png" alt="" class="icon"> Home
+                </a>
+            </li>
+            <li class="separator"></li>
+            <li>
+                <a ui-sref="privacy-policy">
+                    <div class="line"></div>
+                    Privacy Policy
+                </a>
+            </li>
+            <li>
+                <a ui-sref="terms-of-service">
+                    <div class="line"></div>
+                    Terms
+                </a>
+            </li>
+            <li>
+                <a ui-sref="help">
+                    <div class="line"></div>
+                    Help
+                </a>
+            </li>
+            <li>
+                <a ng-click="logout()">
+                    <div class="line"></div>
+                    Sign Out
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

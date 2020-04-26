@@ -1,0 +1,47 @@
+<md-dialog class="hire-dialog" flex="30" aria-label="Hire">
+
+    <a href="" class="close" ng-click="cancel()">x</a>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <p>Hire Artist</p>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+
+        <div class="container">
+
+            <p class="note">Hi {{ employerFirstName }}, a 'Hire' request was successfully sent to:</p>
+
+            <div class="body">
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Full Name:</label>
+                        <div class="col-sm-8 control-label">
+                            {{ employeeFirstName + ' ' + employeeLastName }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Regarding:</label>
+                        <div class="col-sm-8 control-label">
+                            {{ employeeDescription }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <p class="note">If 'Hire' request is accepted, you will be contacted by the user.</p>
+
+            <div class="footer clearfix">
+                <button class="btn-link pull-right" ng-click="cancel()">Continue</button>
+            </div>
+
+        </div>
+
+    </md-dialog-content>
+
+</md-dialog>

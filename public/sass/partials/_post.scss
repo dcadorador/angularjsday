@@ -1,0 +1,206 @@
+.posts-container {
+    margin: 0 auto;
+    @media (min-width: $screen-md) {
+        width: 650px;
+    }
+    @media (max-width: $screen-xs-max) {
+        background: white;
+        box-shadow: 0 2px 2px lighten($pitch-black, 70%);
+        margin: 0 15px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-top: solid 1px #e8e8e8;
+    }
+    @media (max-width: 425px) {
+        padding: 0;
+    }
+    @media (max-width: 320px) {
+        margin: 0 auto;
+    }
+    .post {
+        margin-top: 10px;
+        background: #fff;
+        box-shadow: 0 2px 2px lighten($pitch-black, 70%);
+        padding: 10px;
+        iframe {
+            width: 100%;
+            min-height: 300px;
+            margin-top: 5px;
+        }
+        .heading {
+            .rounded-container {
+                margin-right: 10px;
+                background-color: $yellow;
+            }
+            .address,
+            .name {
+                margin: 0;
+                position: relative;
+                top: 5px;
+                font-size: 17px;
+                text-transform: capitalize;
+            }
+            .name {
+                color: lighten($pitch-black, 20%);
+            }
+            .address {
+                margin-top: 5px;
+                color: lighten($pitch-black, 60%);
+                // background: url("../images/map-marker-transparent.png") center left no-repeat;
+                background-size: contain;
+                // padding-left: 20px;
+            }
+            .time {
+                font-size: 10pt;
+                color: lighten($pitch-black, 60%);
+                background: url("../images/clock.png") center left no-repeat;
+                background-size: contain;
+                padding-left: 25px;
+            }
+            .fb-share-video-feed {
+                margin-top: 5px;
+                text-align: right;
+            }
+            .btn-facebook {
+                font-size: 10pt;
+                display: inline-block;
+                margin: 8px 0px 0px 0px;
+                padding: 2px 15px 2px 30px;
+                background-position: 5px center;
+                background-size: 16px 16px;
+            }
+        }
+        //.heading
+        .video-container {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+        }
+        @media (min-width: $screen-lg-min) {
+            .video-container {
+                height: 375px;
+            }
+        }
+        @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+            .video-container {
+                height: 325px;
+            }
+        }
+        @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+            .video-container {
+                height: 300px;
+            }
+        }
+        .controls {
+            .pull-left{
+              padding: 10px 0px 0px 0px;
+              font-size:14px;
+            }
+            .views {
+                padding: 10px;
+                font-size: 14px;
+                font-weight: 400;
+                color: lighten($pitch-black, 30%);
+                background: url("../images/eye-dark.png") center left no-repeat;
+                background-size: 30px 30px;
+                padding-left: 40px;
+            }
+        }
+        .comments {
+            margin-top: 10px;
+            .comment-form {
+                margin: 0;
+                padding: 8px;
+                background-color: #ebebeb;
+                border: solid 1px darken(#ebebeb, 20%);
+                .col-md-3 {
+                    padding-right: 0;
+                }
+            }
+            .line {
+                margin: 6px 10px;
+                height: 1px;
+                border: solid 1px #ebebeb;
+            }
+        }
+        .caption-container {
+            .edit-description-input {
+                border: dashed 1px #b8b8b8;
+            }
+            .edit-description-controls {
+                margin-top: 2px;
+            }
+            .caption {
+                font-size: 12pt;
+                color: lighten($pitch-black, 50%);
+                margin-bottom: 0;
+                word-wrap: break-word;
+                width:99%;
+            }
+            .hash-tags {
+                font-size: 12pt;
+                word-wrap: break-word;
+                width:98%;
+                a {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    //.post
+    .post-mobile {
+        // margin-bottom: 20px;
+        .preview {
+            background: black;
+            position: relative;
+            img {
+                position: absolute;
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .info {
+            .description {
+                color: lighten($pitch-black, 20%);
+                @include ellipsify(14px, 1.4, 3);
+            }
+            .tags {
+                word-wrap: break-word;
+                @include ellipsify(14px, 1.4, 1);
+            }
+        }
+        .controls {
+            margin-top: -40px;
+            .views {
+                display: inline-block;
+                padding: 10px;
+                font-size: 14px;
+                font-weight: 400;
+                color: lighten($pitch-black, 30%);
+                background: url("../images/eye-dark.png") center left no-repeat;
+                background-size: 30px 30px;
+                padding-left: 40px;
+            }
+        }
+        @media (min-width: $screen-xs) and (max-width: $screen-xs-max) {
+            .preview {
+                height: 150px;
+            }
+        }
+        @media (max-width: $screen-xs - 1) {
+            .preview {
+                height: 120px;
+            }
+        }
+    }
+    // .post-mobile
+}
+//.posts-container

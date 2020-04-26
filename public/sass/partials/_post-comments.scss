@@ -1,0 +1,42 @@
+post-comments {
+
+    .container-fluid {
+        padding: 8px 5px;
+        background-color: #ebebeb;
+        border: solid 1px darken(#ebebeb, 20%);
+
+        .comment-container {
+
+            position: relative;
+            margin-bottom: 5px;
+
+            .edit-comment-input {
+                border: dashed 1px #b8b8b8;
+                margin: 3px 0;
+            }
+
+            .rounded-container {
+                left: 5px;
+                position: absolute;
+                margin-right: 8px;
+            }
+
+            .comment-detail {
+                margin-left: 60px;
+                margin-bottom: 0;
+
+                &.name {
+                    color: blue;
+                }
+
+                &.datetime {
+                    color: #b5b2b2;
+                }
+
+            }
+
+        }
+
+    }
+
+}

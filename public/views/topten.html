@@ -1,0 +1,67 @@
+<!-- <div ng-include="'./views/partials/_header.html'"></div> -->
+
+<div class="topten-container container-fluid" ng-hide="mobileMenuOpen">
+    <div class="title row">
+        Today's Top 10
+    </div>
+
+    <div class="top-stages">
+        <div class="top-stage" ng-repeat="post in posts" ng-cloak>
+            <div class="heading clearfix">
+                <div class="rounded-container rc-md pull-left" profile-link="{{ post.user.id }}" background-img="{{ post.user.profilePicture }}"></div>
+                <div class="pull-left" profile-link="{{ post.user.id }}">
+                    <h4 class="name">{{ post.user.firstName + ' ' + post.user.lastName }}</h4>
+                    <p class="address">{{ post.user.address }}</p>
+                </div>
+            </div>
+            <div class="videogular-container video-container">
+                <videogular class="preview" vg-theme="css/videogular.min.css">
+                    <vg-media vg-src="post.stage.sources" vg-native-controls="false" vg-youtube="rel=1;showinfo=1" vg-preload="post.stage.preload"></vg-media>
+                    <vg-controls vg-autohide="true" vg-autohide-time="2000">
+                        <vg-play-pause-button></vg-play-pause-button>
+                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                        <vg-scrub-bar>
+                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                        </vg-scrub-bar>
+                        <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                        <vg-volume>
+                            <vg-mute-button></vg-mute-button>
+                            <vg-volume-bar></vg-volume-bar>
+                        </vg-volume>
+                        <vg-fullscreen-button></vg-fullscreen-button>
+                    </vg-controls>
+                    <vg-buffering></vg-buffering>
+                    <vg-overlay-play></vg-overlay-play>
+                    <vg-video-hook stage="post.stage"></vg-video-hook>
+                    <vg-poster ng-if="!post.stage.isYouTube" vg-url='post.stage.thumbnail'></vg-poster>
+                </videogular>
+            </div>
+            <div class="caption-container">
+                <p class="caption" ng-hide="edit">
+                    <hm-read-more hm-text="{{ post.stage.description }}" hm-limit="100" hm-more-text="read more" hm-less-text="read less" hm-dots-class="dots" hm-link-class="read-more-link"></hm-read-more>
+                    <!-- {{ post.stage.description }} -->
+                </p>
+                <p class="hash-tags">
+                    <a ng-href="" ng-repeat="tag in post.stage.tags">#{{ tag }}</a>
+                </p>
+            </div>
+            <div class="controls clearfix">
+                <div class="btn views"></div>{{ post.stage.viewsCount }}
+                <button
+                    type="button"
+                    ng-disabled="applauseToggling"
+                    class="btn btn-post-control"
+                    ng-class="{'btn-applause':post.stage.isApplauded,'btn-applause2':!post.stage.isApplauded}"
+                    ng-click="post.stage.isApplauded ? removeApplause(post.stage) : applause(post.stage)"></button>{{ post.stage.applauseCount }}
+                {{ post.stage.applauseCount > 1 ? 'Applauses' : 'Applause' }}
+                <div class="follow-hire pull-right">
+                    <follow user="post.user" ng-if="post.user" ng-cloak></follow>
+                    <button class="btn winner-button btn-hire" hire="{{post.user.id}}">Hire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div ng-include="'./views/partials/_footer.html'"></div>

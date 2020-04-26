@@ -1,0 +1,46 @@
+.upload-bottom-sheet {
+
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f6f6f6;
+    border: none;
+    color: #969090;
+    box-shadow: 0 0 3px rgba(0,0,0,.6);
+    z-index: 3;
+
+    .progress {
+        background-color: lighten($pitch-black, 70%);
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 0;
+        .progress-inner {
+            background: #67ce89;
+            height: 100%;
+        }
+    }
+
+    .btn-close-bottom-sheet {
+        right: 5px;
+    }
+    .btn-cancel {
+        right: 50px;
+    }
+
+    .btn-close-bottom-sheet,
+    .btn-cancel {
+        position: absolute;
+        top: 5px;
+        font-size: 12pt;
+        display: inline-block;
+        padding: 6px 10px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #969090;
+        cursor: pointer;
+        &:hover {
+            background: darken(#f6f6f6, 5%);
+        }
+    }
+}

@@ -1,0 +1,56 @@
+#public-vote {
+  // .btn-facebook {
+  //     font-size: 12pt;
+  //     position: absolute;
+  //     right: 0;
+  //     top: 50%;
+  //     transform: translate(0, -50%);
+  // }
+  // btn-applause > button {
+  //     background-repeat: no-repeat;
+  //     color: white;
+  //     background-color: transparent;
+  //     &.applauded {
+  //         color: #f51652;
+  //     }
+  // }
+  .footer-controls {
+    background: rgba(0, 0, 0, 0.80);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 3px 0;
+    z-index: 3;
+    .btn-facebook {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+    }
+    .btn:not(.btn-facebook) {
+      font-size: 24pt;
+      &::hover {
+        color: white !important;
+      }
+      &.btn-applause-control {
+        padding-left: 45px;
+        background-size: 30px 30px;
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}
+
+#vote-video-wrapper {
+  @media (max-width: 769px) {
+    .home-top-10-section {
+      margin-top: 15px;
+    }
+    .winner-container-mobile {
+      .header {
+        height: 90px;
+      }
+    }
+  }
+}

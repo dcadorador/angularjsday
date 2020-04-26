@@ -1,0 +1,149 @@
+.signup-page-container {
+    margin-top: 20px;
+    .btn-facebook {
+        margin-bottom: 10px;
+    }
+    .or {
+        color: lighten($pitch-black, 50%);
+        font-weight: bold;
+    }
+    .separator {
+        border-bottom: solid 1px #D2D2D2 !important;
+    }
+    .terms {
+        background: #F6F6F6 !important;
+    }
+    .row {
+        background: white;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        &.button-signup {
+            padding-top: 0;
+            padding-bottom: 0;
+            position: relative !important;
+            width: 100%;
+            bottom: 0;
+        }
+    }
+}
+sign-up {
+    .gap {
+        height: 5px;
+        width: 100%;
+        background: #fff;
+    }
+    .has-error {
+        .form-control {
+            background: url('../images/x-red.png') right center no-repeat;
+            background-size: 16px 16px;
+            padding-right: 20px;
+        }
+        md-input-container .md-select-placeholder span,
+        md-radio-button .md-label span {
+            color: $brand-danger !important;
+        }
+    }
+    .has-success {
+        .form-control {
+            background: url('../images/check-green.png') right center no-repeat;
+            background-size: 16px 16px;
+            padding-right: 20px;
+        }
+        md-input-container .md-select-placeholder span,
+        md-radio-button .md-label span {
+            color: $brand-success !important;
+        }
+    }
+    .form-control {
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .icon {
+        margin-top: 5px;
+        margin-left: 10px;
+        width: 25px;
+        height: 25px;
+    }
+    .row:not(.button-signup) {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom: solid 1px #D2D2D2;
+    }
+    .row.terms {
+        padding: 5px;
+        background-color: #fff;
+        color: #757575;
+    }
+    #button-signup {
+        width: 100%;
+        height: 54px;
+        background: $yellow;
+        color: #fff;
+        // font-family: "RamaGothicThin" !important;
+        // font-family: "Myriad Pro", sans-serif !important;
+        font-size: 14pt;
+        text-shadow: 0 2px 2px lighten($pitch-black, 70%);
+        padding: 0 16px;
+    }
+    #facebook-button-signup {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        background-position: 20% center;
+    }
+    .row.button-signup {
+        padding-top: 0;
+        padding-bottom: 0;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+    .has-error {
+        .md-select-value.md-select-placeholder {
+            span {
+                color: #a94442;
+            }
+        }
+        md-radio-button {
+            .md-label {
+                span {
+                    color: #a94442;
+                }
+            }
+        }
+    }
+    .birthdate-input-container {
+        padding-left: 10px;
+        .col-xs-2 {
+            margin-right: 10px;
+        }
+        .md-select-value span {
+            color: #959595 !important;
+        }
+    }
+    .gender-row {
+        border: none !important;
+    }
+    .gender-input-container {
+        padding-left: 20px;
+        padding-top: 5px;
+        .md-label span {
+            color: #959595 !important;
+        }
+    }
+    md-input-container {
+        margin: 0;
+        md-select-value {
+            border: none !important;
+        }
+        label {
+            display: none;
+        }
+    }
+    md-select-value {
+        .md-select-icon {
+            width: 15px !important;
+        }
+    }
+}

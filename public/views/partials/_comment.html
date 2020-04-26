@@ -1,0 +1,28 @@
+<div class="comment-container">
+    <div class="user-info">
+        <div background-img="{{comment.user.profileImage||'images/user-circled.png'}}" profile-link="{{ comment.user.id }}" class="rounded-container rc-sm"></div>
+        <a ng-href="" class="name comment-detail" profile-link="{{ comment.user.id }}">{{ comment.user.firstName + ' ' + comment.user.lastName  }}</a>
+        <div class="ds-dropdown dropdown pull-right" ng-show="own">
+            <a class="menu-link" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
+                <li>
+                    <a href="" ng-click="edit=true">Edit</a>
+                </li>
+                <li>
+                    <a href="" ng-click="deleteComment()">Delete</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <p class="comment comment-detail" ng-hide="edit">{{ comment.comment }}</p>
+    <div class="comment-detail clearfix">
+        <textarea class="edit-comment-input form-control" ng-style="!edit && { 'display' : 'none'}" ng-cloak ng-show="edit" rows="3" ng-model="tempComment"></textarea>
+        <div class="edit-comment-controls pull-right">
+            <button ng-show="edit" class="btn btn-success btn-xs" ng-click="updateComment()">Save</button>
+            <button ng-show="edit" class="btn btn-default btn-xs" ng-click="edit=false">Cancel</button>
+        </div>
+    </div>
+    <p class="datetime comment-detail">{{ comment.date.date|date:'MMMM d, y HH:mm' }}</p>
+</div>

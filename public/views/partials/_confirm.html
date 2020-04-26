@@ -1,0 +1,23 @@
+<div class="confirm-container container paper">
+    <div ng-hide="confirmed || error" class="loading">
+        <div>
+            <md-progress-circular ng-hide="confirmed || error" class="center-block" md-diameter="70" md-mode="indeterminate">
+            </md-progress-circular>
+        </div>
+        <h4 ng-hide="confirmed || error" class="text-center">Verifying your email address please wait...</h4>
+    </div>
+    <div ng-show="confirmed || error">
+        <div class="col-md-7">
+            <p class="middle message" ng-show="confirmed">Your email is now verified.<br/>You can log in using your email and password or through Facebook.</p>
+            <p class="middle message" ng-show="error">{{ error }}</p>
+        </div>
+        <div class="col-md-5">
+            <button class="middle facebook-button" fb-signup>
+                <span class="icon clearfix">
+                    <img src="images/facebook.svg" alt="">
+                </span>
+                Login with Facebook
+            </button>
+        </div>
+    </div>
+</div>
